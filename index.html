@@ -267,29 +267,45 @@
   .portfolio-card{
     position:relative;overflow:hidden;border-radius:28px;color:#fff;
     background:
-      radial-gradient(700px 420px at 88% 8%, rgba(20,179,163,.3), transparent 62%),
+      radial-gradient(760px 460px at 88% 4%, rgba(20,179,163,.28), transparent 62%),
+      radial-gradient(620px 420px at 6% 98%, rgba(184,147,63,.17), transparent 66%),
       linear-gradient(140deg,#0b1a30,#0d2338 60%,#0a1729);
     border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow-lg);
+    padding:clamp(24px,3.6vw,48px);
+  }
+  .pc-top{
     display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,52px);
-    padding:clamp(28px,4vw,52px);align-items:center;
+    align-items:center;margin-bottom:clamp(28px,3.6vw,46px);
   }
   .portfolio-media{position:relative;order:1;}
-  .app-shot{
-    position:relative;aspect-ratio:4/3.2;border-radius:20px;overflow:hidden;
+
+  /* لوحة الشعار: سطح فاتح دافئ ليحتفظ ذهب "ديوان" بتباينه */
+  .brand-tile{
+    position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;
+    aspect-ratio:16/11;border-radius:22px;padding:clamp(14px,3vw,30px);
+    background:radial-gradient(125% 125% at 50% 0%,#ffffff 0%,#f6f3ec 58%,#e9e3d6 100%);
+    border:1px solid rgba(255,255,255,.62);
+    box-shadow:0 34px 64px -34px rgba(0,0,0,.72),inset 0 1px 0 #fff;
+  }
+  .brand-tile::after{
+    content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
     background:
-      linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02)),
-      repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, transparent 2px 14px);
-    border:1px dashed rgba(255,255,255,.28);
-    display:grid;place-items:center;text-align:center;padding:26px;
+      radial-gradient(closest-side,rgba(184,147,63,.22),transparent 74%) 50% 48%/76% 76% no-repeat,
+      repeating-linear-gradient(135deg,rgba(11,26,48,.04) 0 1px,transparent 1px 13px);
   }
-  .app-shot .shot-icon{
-    width:68px;height:68px;border-radius:20px;display:grid;place-items:center;margin:0 auto 14px;
-    background:rgba(20,179,163,.18);border:1px solid rgba(20,179,163,.4);color:var(--teal-light);
+  .brand-tile img{width:min(82%,330px);height:auto;max-height:100%;display:block;
+    filter:drop-shadow(0 14px 26px rgba(120,92,30,.18));}
+  .brand-chip{
+    position:absolute;inset-block-start:14px;inset-inline-start:14px;
+    font-size:.64rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+    color:#6b5622;background:rgba(255,255,255,.74);border:1px solid rgba(184,147,63,.42);
+    padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px);
   }
-  .app-shot .shot-icon svg{width:30px;height:30px;}
-  .app-shot p{font-size:.85rem;color:#a9c0cc;line-height:1.7;max-width:22ch;margin-inline:auto;}
-  .app-shot .shot-label{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#6f8a99;margin-top:8px;}
-  .app-shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .tile-fallback{display:none;}
+  .brand-tile .tile-fallback svg{width:34px;height:34px;color:#a08a54;}
+  .brand-tile .tile-fallback b{font-size:.7rem;font-weight:700;letter-spacing:.03em;color:#7a6839;}
+  .brand-tile.is-missing img{display:none;}
+  .brand-tile.is-missing .tile-fallback{display:grid;place-items:center;gap:10px;text-align:center;padding:18px;}
 
   .portfolio-body{order:2;}
   .pill{
@@ -302,6 +318,126 @@
   .feature-list{display:grid;gap:11px;margin-bottom:30px;}
   .feature-list li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:#d5e2e8;font-weight:600;}
   .feature-list svg{width:18px;height:18px;color:var(--teal-light);flex:none;}
+
+  /* ---------- Portfolio: screenshots gallery + lightbox ---------- */
+  .pc-gallery{padding-top:clamp(24px,3.2vw,38px);border-top:1px solid rgba(255,255,255,.1);}
+  .gallery-head{
+    display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+    gap:14px 26px;margin-bottom:clamp(18px,2.4vw,26px);
+  }
+  .gallery-kicker{display:block;font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-light);}
+  .gallery-head h4{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:800;color:#fff;margin:8px 0;}
+  .gallery-head p{color:#9fb6c2;font-size:.87rem;line-height:1.8;max-width:54ch;}
+  .gallery-hint{
+    display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;color:#a9c2cd;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+    padding:8px 14px;border-radius:999px;white-space:nowrap;
+  }
+  .gallery-hint svg{width:15px;height:15px;color:var(--teal-light);flex:none;}
+
+  .shot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,18px);}
+  .shot-card{margin:0;min-width:0;}
+  .shot-card figcaption{
+    margin-top:10px;font-size:.78rem;font-weight:700;color:#c9d9e0;
+    display:flex;align-items:center;gap:8px;line-height:1.5;
+  }
+  .shot-card figcaption::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);flex:none;}
+
+  .shot-btn{
+    position:relative;display:block;width:100%;padding:0;overflow:hidden;cursor:zoom-in;
+    background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.13);
+    border-radius:16px;color:inherit;text-align:inherit;
+    box-shadow:0 20px 44px -32px rgba(0,0,0,.95);
+    transition:transform .45s var(--ease),border-color .35s ease,box-shadow .45s var(--ease);
+  }
+  .shot-btn:hover{transform:translateY(-6px);border-color:rgba(20,179,163,.52);box-shadow:0 28px 54px -30px rgba(0,0,0,1);}
+  .shot-btn.is-disabled{cursor:default;}
+  .shot-btn.is-disabled:hover{transform:none;border-color:rgba(255,255,255,.13);}
+  .shot-chrome{
+    display:flex;align-items:center;gap:8px;padding:8px 11px;
+    background:rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .shot-chrome .dots{display:inline-flex;gap:4px;flex:none;}
+  .shot-chrome .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);}
+  .shot-chrome .dots i:first-child{background:rgba(255,255,255,.52);}
+  .shot-url{
+    flex:1;min-width:0;text-align:center;direction:ltr;
+    font-size:.6rem;letter-spacing:.04em;color:#8fa8b5;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .shot-view{
+    position:relative;display:block;aspect-ratio:9/15;overflow:hidden;
+    background:linear-gradient(160deg,#0f2437,#0a1729);
+  }
+  .shot-view img{
+    width:100%;height:100%;display:block;object-fit:cover;object-position:top center;
+    transition:transform .7s var(--ease);
+  }
+  .shot-btn:hover .shot-view img{transform:scale(1.035);}
+  .shot-zoom{
+    position:absolute;inset-block-end:10px;inset-inline-end:10px;
+    width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(11,26,48,.74);border:1px solid rgba(255,255,255,.26);color:#fff;
+    backdrop-filter:blur(6px);opacity:0;transform:translateY(6px);
+    transition:opacity .3s ease,transform .3s var(--ease);
+  }
+  .shot-zoom svg{width:16px;height:16px;}
+  .shot-btn:hover .shot-zoom,.shot-btn:focus-visible .shot-zoom{opacity:1;transform:none;}
+  .shot-fallback{display:none;}
+  .shot-fallback svg{width:26px;height:26px;color:#648795;}
+  .shot-fallback b{font-size:.62rem;font-weight:700;letter-spacing:.02em;word-break:break-all;color:#93afbc;}
+  .shot-view.is-missing img{display:none;}
+  .shot-view.is-missing .shot-fallback{
+    display:grid;place-items:center;gap:8px;height:100%;padding:18px;text-align:center;
+  }
+
+  body.is-locked{overflow:hidden;}
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+  .lightbox{
+    position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
+    padding:clamp(10px,2.4vw,26px);background:rgba(6,14,24,.93);backdrop-filter:blur(7px);
+  }
+  .lightbox.is-open{display:flex;animation:lbFade .25s ease;}
+  @keyframes lbFade{from{opacity:0;}to{opacity:1;}}
+  .lb-panel{
+    width:min(540px,100%);max-height:calc(100dvh - 44px);overflow:auto;overscroll-behavior:contain;
+    border-radius:16px;background:#0d2338;border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 44px 96px -44px #000;scrollbar-width:thin;
+  }
+  .lb-panel img{display:block;width:100%;height:auto;}
+  .lb-btn{
+    position:absolute;z-index:2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);color:#fff;
+    cursor:pointer;backdrop-filter:blur(6px);transition:background-color .25s ease,color .25s ease;
+  }
+  .lb-btn svg{width:20px;height:20px;}
+  .lb-btn:hover{background:rgba(15,143,134,.85);border-color:rgba(20,179,163,.8);}
+  .lb-close{inset-block-start:12px;inset-inline-end:14px;}
+  .lb-prev{inset-inline-start:10px;top:50%;transform:translateY(-50%);}
+  .lb-next{inset-inline-end:10px;top:50%;transform:translateY(-50%);}
+  .lb-count{
+    position:absolute;inset-block-end:14px;inset-inline-start:50%;transform:translateX(-50%);
+    font-size:.75rem;font-weight:700;color:#d7e5eb;background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.18);padding:5px 13px;border-radius:999px;
+  }
+  @media (max-width:760px){
+    .shot-grid{
+      display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+      padding-bottom:8px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent;
+    }
+    .shot-card{flex:0 0 min(76%,268px);scroll-snap-align:center;}
+    .gallery-hint{display:none;}
+  }
+  @media (max-width:600px){
+    .lb-prev,.lb-next{top:auto;bottom:12px;transform:none;}
+    .lb-prev{inset-inline-start:calc(50% - 84px);}
+    .lb-next{inset-inline-end:calc(50% - 84px);}
+    .lb-count{inset-block-end:22px;}
+    .lb-panel{max-height:calc(100dvh - 100px);}
+  }
 
   /* ---------- Contact ---------- */
   .contact{background:var(--bg);}
@@ -391,7 +527,7 @@
     .hero-grid{grid-template-columns:1fr;}
     .hero-visual{max-width:520px;margin-inline:auto;}
     .float-badge{inset-inline-start:auto;inset-inline-end:14px;}
-    .portfolio-card{grid-template-columns:1fr;}
+    .pc-top{grid-template-columns:1fr;}
     .portfolio-media{order:2;}
     .portfolio-body{order:1;}
     .contact-wrap{grid-template-columns:1fr;}
@@ -582,36 +718,94 @@
         <p class="section-sub" data-i18n="portfolio.sub">نماذج حقيقية من حلول طوّرناها لتبسيط العمل اليومي ورفع الإنتاجية.</p>
       </div>
 
-      <article class="portfolio-card reveal">
-        <div class="portfolio-media">
-          <!-- مكان صورة التطبيق: استبدل هذا البلوك بوسم الصورة التالي
-               <img src="./diwan.png" alt="ديوان — نظام إدارة مكتب المحاماة" /> -->
-          <div class="app-shot">
-            <div>
-              <div class="shot-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16v13H4zM8 21h8M12 17v4"/>
-                </svg>
-              </div>
-              <p data-i18n="portfolio.placeholder">مساحة مخصّصة لصورة التطبيق</p>
-              <span class="shot-label" data-i18n="portfolio.placeholderLabel">Capture d'écran</span>
+            <article class="portfolio-card reveal">
+        <div class="pc-top">
+          <div class="portfolio-media">
+            <div class="brand-tile">
+              <img src="./diwan-logo.png" alt="شعار تطبيق ديوان" data-i18n-alt="portfolio.logoAlt" loading="lazy" decoding="async" />
+              <span class="tile-fallback" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="1.5"/><path d="m4.5 17.5 4.2-4.2 3.3 3 2.7-2.4 5.3 4.6"/></svg>
+                <b dir="ltr">diwan-logo.png</b>
+              </span>
+              <span class="brand-chip" aria-hidden="true">Diwan App</span>
             </div>
+          </div>
+
+          <div class="portfolio-body">
+            <span class="pill" data-i18n="portfolio.badge">تطبيق مميز</span>
+            <h3 data-i18n="portfolio.appTitle">ديوان — نظام إدارة مكتب المحاماة</h3>
+            <p data-i18n="portfolio.appDesc">تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة وحماية لبيانات الموكلين.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f1">إدارة القضايا والموكلين</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f2">الجلسات والمواعيد</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f3">الوثائق والفواتير</span></li>
+            </ul>
+            <a class="btn btn-primary" href="https://diwanpro.github.io/Diwan.app/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="portfolio.cta">زيارة التطبيق</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            </a>
           </div>
         </div>
 
-        <div class="portfolio-body">
-          <span class="pill" data-i18n="portfolio.badge">تطبيق مميز</span>
-          <h3 data-i18n="portfolio.appTitle">ديوان — نظام إدارة مكتب المحاماة</h3>
-          <p data-i18n="portfolio.appDesc">تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة وحماية لبيانات الموكلين.</p>
-          <ul class="feature-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f1">إدارة القضايا والموكلين</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f2">الجلسات والمواعيد</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f3">الوثائق والفواتير</span></li>
-          </ul>
-          <a class="btn btn-primary" href="https://diwanpro.github.io/Diwan.app/" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="portfolio.cta">زيارة التطبيق</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-          </a>
+        <div class="pc-gallery">
+          <div class="gallery-head">
+            <div>
+              <span class="gallery-kicker" data-i18n="portfolio.galleryKicker">لقطات حقيقية</span>
+              <h4 data-i18n="portfolio.galleryTitle">نظرة داخل تطبيق ديوان</h4>
+              <p data-i18n="portfolio.gallerySub">من لوحة التحكم اليومية إلى الأتعاب والملفات: واجهة عربية كاملة صُممت لتُنجز عملك في أقل عدد من الخطوات.</p>
+            </div>
+            <span class="gallery-hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4M11 8v6M8 11h6"/></svg>
+              <span data-i18n="portfolio.galleryHint">اضغط على أي لقطة لعرضها بالحجم الكامل</span>
+            </span>
+          </div>
+
+          <div class="shot-grid">
+            <figure class="shot-card">
+              <button type="button" class="shot-btn" data-shot="0" aria-label="تكبير لقطة لوحة التحكم" data-i18n-aria="portfolio.shot1Open">
+                <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / dashboard</span></span>
+                <span class="shot-view">
+                  <img src="./diwan-screen1.jpg" alt="ديوان — لوحة التحكم اليومية والملفات" data-i18n-alt="portfolio.shot1Alt" loading="lazy" decoding="async" />
+                  <span class="shot-fallback" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="1.5"/><path d="m4.5 17.5 4.2-4.2 3.3 3 2.7-2.4 5.3 4.6"/></svg>
+                    <b dir="ltr">diwan-screen1.jpg</b>
+                  </span>
+                  <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4M11 8v6M8 11h6"/></svg></span>
+                </span>
+              </button>
+              <figcaption data-i18n="portfolio.shot1">لوحة التحكم والملفات</figcaption>
+            </figure>
+
+            <figure class="shot-card">
+              <button type="button" class="shot-btn" data-shot="1" aria-label="تكبير لقطة الأتعاب والحسابات" data-i18n-aria="portfolio.shot2Open">
+                <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / honoraires</span></span>
+                <span class="shot-view">
+                  <img src="./diwan-screen2.jpg" alt="ديوان — صفحة الأتعاب والحسابات" data-i18n-alt="portfolio.shot2Alt" loading="lazy" decoding="async" />
+                  <span class="shot-fallback" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="1.5"/><path d="m4.5 17.5 4.2-4.2 3.3 3 2.7-2.4 5.3 4.6"/></svg>
+                    <b dir="ltr">diwan-screen2.jpg</b>
+                  </span>
+                  <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4M11 8v6M8 11h6"/></svg></span>
+                </span>
+              </button>
+              <figcaption data-i18n="portfolio.shot2">الأتعاب والحسابات</figcaption>
+            </figure>
+
+            <figure class="shot-card">
+              <button type="button" class="shot-btn" data-shot="2" aria-label="تكبير لقطة الجلسات والآجال" data-i18n-aria="portfolio.shot3Open">
+                <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / audiences</span></span>
+                <span class="shot-view">
+                  <img src="./diwan-screen3.jpg" alt="ديوان — الجلسات والآجال" data-i18n-alt="portfolio.shot3Alt" loading="lazy" decoding="async" />
+                  <span class="shot-fallback" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="1.5"/><path d="m4.5 17.5 4.2-4.2 3.3 3 2.7-2.4 5.3 4.6"/></svg>
+                    <b dir="ltr">diwan-screen3.jpg</b>
+                  </span>
+                  <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4M11 8v6M8 11h6"/></svg></span>
+                </span>
+              </button>
+              <figcaption data-i18n="portfolio.shot3">الجلسات والآجال</figcaption>
+            </figure>
+          </div>
         </div>
       </article>
     </div>
@@ -631,7 +825,7 @@
           </div>
           <div class="info-item">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-            <div><small data-i18n="contact.emailLabel">البريد الإلكتروني</small><strong><a href="mailto:contact@attia-web.com" dir="ltr">contact@attia-web.com</a></strong></div>
+            <div><small data-i18n="contact.emailLabel">البريد الإلكتروني</small><strong><a href="mailto:attiawebsite@gmail.com" dir="ltr">attiawebsite@gmail.com</a></strong></div>
           </div>
           <div class="info-item">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
@@ -673,6 +867,23 @@
   </section>
 </main>
 
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" aria-hidden="true">
+  <span class="sr-only" id="lbTitle" data-i18n="portfolio.lbTitle">عرض لقطة الشاشة</span>
+  <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="إغلاق العرض" data-i18n-aria="portfolio.lbClose">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="اللقطة السابقة" data-i18n-aria="portfolio.lbPrev">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+  </button>
+  <div class="lb-panel"><img id="lbImg" alt="" /></div>
+  <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="اللقطة التالية" data-i18n-aria="portfolio.lbNext">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+  </button>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
+
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="container">
@@ -693,7 +904,7 @@
         <h4 data-i18n="footer.contactTitle">معلومات التواصل</h4>
         <ul>
           <li><a href="tel:+213798726063" dir="ltr">0798726063</a></li>
-          <li><a href="mailto:contact@attia-web.com" dir="ltr">contact@attia-web.com</a></li>
+          <li><a href="mailto:attiawebsite@gmail.com" dir="ltr">attiawebsite@gmail.com</a></li>
           <li><a href="https://diwanpro.github.io/Diwan.app/" target="_blank" rel="noopener noreferrer" data-i18n="footer.diwan">تطبيق ديوان</a></li>
         </ul>
       </div>
@@ -761,8 +972,24 @@
       "portfolio.f2": "الجلسات والمواعيد",
       "portfolio.f3": "الوثائق والفواتير",
       "portfolio.cta": "زيارة التطبيق",
-      "portfolio.placeholder": "مساحة مخصّصة لصورة التطبيق",
-      "portfolio.placeholderLabel": "لقطة شاشة",
+      "portfolio.logoAlt": "شعار تطبيق ديوان",
+      "portfolio.galleryKicker": "لقطات حقيقية",
+      "portfolio.galleryTitle": "نظرة داخل تطبيق ديوان",
+      "portfolio.gallerySub": "من لوحة التحكم اليومية إلى الأتعاب والملفات: واجهة عربية كاملة صُممت لتُنجز عملك في أقل عدد من الخطوات.",
+      "portfolio.galleryHint": "اضغط على أي لقطة لعرضها بالحجم الكامل",
+      "portfolio.shot1": "لوحة التحكم والملفات",
+      "portfolio.shot1Alt": "ديوان — لوحة التحكم اليومية والملفات",
+      "portfolio.shot1Open": "تكبير لقطة لوحة التحكم",
+      "portfolio.shot2": "الأتعاب والحسابات",
+      "portfolio.shot2Alt": "ديوان — صفحة الأتعاب والحسابات",
+      "portfolio.shot2Open": "تكبير لقطة الأتعاب والحسابات",
+      "portfolio.shot3": "الجلسات والآجال",
+      "portfolio.shot3Alt": "ديوان — الجلسات والآجال",
+      "portfolio.shot3Open": "تكبير لقطة الجلسات والآجال",
+      "portfolio.lbTitle": "عرض لقطة الشاشة",
+      "portfolio.lbClose": "إغلاق العرض",
+      "portfolio.lbPrev": "اللقطة السابقة",
+      "portfolio.lbNext": "اللقطة التالية",
       "contact.eyebrow": "تواصل معنا",
       "contact.title": "لنبنِ مشروعك القادم معاً",
       "contact.sub": "أخبرنا بفكرتك أو حاجتك، وسنعود إليك بتصوّر واضح خلال 24 ساعة.",
@@ -834,8 +1061,24 @@
       "portfolio.f2": "Audiences et échéances",
       "portfolio.f3": "Documents et facturation",
       "portfolio.cta": "Visiter l'application",
-      "portfolio.placeholder": "Emplacement réservé à la capture de l'application",
-      "portfolio.placeholderLabel": "Aperçu",
+      "portfolio.logoAlt": "Logo de l'application Diwan",
+      "portfolio.galleryKicker": "Captures réelles",
+      "portfolio.galleryTitle": "À l'intérieur de Diwan",
+      "portfolio.gallerySub": "Du tableau de bord quotidien aux honoraires et aux dossiers : une interface arabe complète, pensée pour aller vite.",
+      "portfolio.galleryHint": "Cliquez sur une capture pour l'agrandir",
+      "portfolio.shot1": "Tableau de bord & dossiers",
+      "portfolio.shot1Alt": "Diwan — tableau de bord quotidien et dossiers",
+      "portfolio.shot1Open": "Agrandir la capture du tableau de bord",
+      "portfolio.shot2": "Honoraires & comptabilité",
+      "portfolio.shot2Alt": "Diwan — page honoraires et comptabilité",
+      "portfolio.shot2Open": "Agrandir la capture des honoraires",
+      "portfolio.shot3": "Audiences & délais",
+      "portfolio.shot3Alt": "Diwan — audiences et délais",
+      "portfolio.shot3Open": "Agrandir la capture des audiences",
+      "portfolio.lbTitle": "Aperçu de la capture",
+      "portfolio.lbClose": "Fermer l'aperçu",
+      "portfolio.lbPrev": "Capture précédente",
+      "portfolio.lbNext": "Capture suivante",
       "contact.eyebrow": "Contact",
       "contact.title": "Construisons votre prochain projet",
       "contact.sub": "Parlez-nous de votre idée ou de votre besoin : nous revenons vers vous avec une proposition claire sous 24 heures.",
@@ -972,7 +1215,85 @@
   }
 
   /* ============================================================
-     5. CONTACT FORM (Formspree)
+     5. PORTFOLIO GALLERY + LIGHTBOX
+     ============================================================ */
+  var shots = Array.prototype.slice.call(document.querySelectorAll(".shot-btn"));
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lbImg");
+  var lbCount = document.getElementById("lbCount");
+  var lbCloseBtn = document.getElementById("lbClose");
+  var lbPrevBtn = document.getElementById("lbPrev");
+  var lbNextBtn = document.getElementById("lbNext");
+  var lbIndex = 0;
+  var lbTrigger = null;
+
+  /* إن لم تكن الصورة موجودة بعد: بديل أنيق بدل أيقونة مكسورة */
+  Array.prototype.slice.call(document.querySelectorAll(".brand-tile img, .shot-view img")).forEach(function (img) {
+    function markMissing() {
+      var host = img.parentElement;
+      if (!host) return;
+      host.classList.add("is-missing");
+      var btn = host.closest(".shot-btn");
+      if (btn) btn.classList.add("is-disabled");
+    }
+    img.addEventListener("error", markMissing, { once: true });
+    if (img.complete && img.naturalWidth === 0) markMissing();
+  });
+
+  function openShot(index) {
+    var btn = shots[index];
+    if (!btn || btn.classList.contains("is-disabled")) return;
+    var img = btn.querySelector("img");
+    if (!img) return;
+    lbIndex = index;
+    lbTrigger = btn;
+    lbImg.src = img.getAttribute("src");
+    lbImg.alt = img.getAttribute("alt") || "";
+    lbCount.textContent = (index + 1) + " / " + shots.length;
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.classList.add("is-locked");
+    lbCloseBtn.focus({ preventScroll: true });
+  }
+
+  function closeShot() {
+    if (!lb.classList.contains("is-open")) return;
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+    lbImg.removeAttribute("src");
+    document.body.classList.remove("is-locked");
+    if (lbTrigger) lbTrigger.focus({ preventScroll: true });
+  }
+
+  function stepShot(dir) {
+    if (!lb.classList.contains("is-open") || !shots.length) return;
+    var next = (lbIndex + dir + shots.length) % shots.length;
+    var guard = 0;
+    while (shots[next].classList.contains("is-disabled") && guard < shots.length) {
+      next = (next + dir + shots.length) % shots.length;
+      guard++;
+    }
+    openShot(next);
+  }
+
+  shots.forEach(function (btn, i) {
+    btn.addEventListener("click", function () { openShot(i); });
+  });
+  lbCloseBtn.addEventListener("click", closeShot);
+  lbPrevBtn.addEventListener("click", function () { stepShot(-1); });
+  lbNextBtn.addEventListener("click", function () { stepShot(1); });
+  lb.addEventListener("click", function (event) {
+    if (event.target === lb) closeShot();
+  });
+  document.addEventListener("keydown", function (event) {
+    if (!lb.classList.contains("is-open")) return;
+    if (event.key === "Escape") closeShot();
+    else if (event.key === "ArrowLeft") stepShot(-1);
+    else if (event.key === "ArrowRight") stepShot(1);
+  });
+
+  /* ============================================================
+     6. CONTACT FORM (Formspree)
      ============================================================ */
   var form = document.getElementById("contactForm");
   var statusEl = document.getElementById("formStatus");
