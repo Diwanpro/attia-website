@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attia Web Solutions — نبتكر حلولاً رقمية تسهّل إدارة أعمالك</title>
+<meta name="description" content="Attia Web Solutions — تطوير مواقع، برمجيات إدارة أعمال، وتصميم واجهات احترافية. حلول رقمية متكاملة في الجزائر." />
+<meta name="theme-color" content="#0b1a30" />
+<meta property="og:title" content="Attia Web Solutions" />
+<meta property="og:description" content="نبتكر حلولاً رقمية تسهّل إدارة أعمالك" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="./logo.png" />
+<link rel="apple-touch-icon" href="./logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0b1a30;
+    --navy-2:#0e2742;
+    --navy-3:#132f4d;
+    --teal:#0f8f86;
+    --teal-light:#14b3a3;
+    --teal-soft:rgba(15,143,134,.10);
+    --gold:#d9cba6;
+    --white:#ffffff;
+    --ink:#0b1a30;
+    --muted:#5b6b7c;
+    --line:rgba(11,26,48,.10);
+    --bg:#f6f9fb;
+    --surface:#ffffff;
+    --radius:20px;
+    --radius-sm:14px;
+    --shadow-sm:0 4px 16px rgba(11,26,48,.06);
+    --shadow-md:0 18px 40px -18px rgba(11,26,48,.28);
+    --shadow-lg:0 30px 70px -30px rgba(11,26,48,.45);
+    --font-ar:'Cairo', 'Segoe UI', Tahoma, sans-serif;
+    --font-fr:'Poppins', 'Segoe UI', system-ui, sans-serif;
+    --nav-h:76px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:var(--font-ar);
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.75;
+    font-size:16px;
+    overflow-x:hidden;
+  }
+  html[lang="fr"] body{font-family:var(--font-fr);line-height:1.7;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;cursor:pointer;}
+  ul{padding:0;margin:0;list-style:none;}
+  h1,h2,h3,h4,p{margin:0;}
+
+  .container{width:min(1180px,92vw);margin-inline:auto;}
+  .section{padding:clamp(64px,8vw,110px) 0;position:relative;}
+  .section-head{max-width:660px;margin-bottom:clamp(32px,4vw,54px);}
+  .section-head.center{margin-inline:auto;text-align:center;}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--teal);border-radius:2px;}
+  .section-head.center .eyebrow::after{content:"";width:26px;height:2px;background:var(--teal);border-radius:2px;}
+  html[lang="fr"] .eyebrow{letter-spacing:.16em;}
+
+  .section-title{
+    font-size:clamp(1.7rem,3.6vw,2.7rem);
+    font-weight:800;line-height:1.25;letter-spacing:-.5px;
+  }
+  html[lang="fr"] .section-title{letter-spacing:-1px;}
+  .section-sub{color:var(--muted);margin-top:14px;font-size:1.02rem;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 28px;border-radius:999px;border:1px solid transparent;
+    font-weight:700;font-size:.98rem;line-height:1;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), background-color .25s ease, color .25s ease, border-color .25s ease;
+    will-change:transform;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn:active{transform:translateY(0);}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--teal-light),var(--teal));
+    color:#fff;box-shadow:0 12px 26px -12px rgba(15,143,134,.75);
+  }
+  .btn-primary:hover{box-shadow:0 18px 34px -12px rgba(15,143,134,.8);}
+  .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.28);}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--teal);color:var(--teal);}
+  .btn svg{flex:none;}
+
+  /* ---------- Navbar ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid transparent;transition:box-shadow .3s ease,border-color .3s ease;
+  }
+  .site-header.is-stuck{box-shadow:0 10px 30px -22px rgba(11,26,48,.5);border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:var(--nav-h);}
+  .brand{display:flex;align-items:center;gap:12px;flex:none;}
+  .brand img{height:52px;width:auto;object-fit:contain;}
+  .nav-links{display:flex;align-items:center;gap:6px;}
+  .nav-links a{
+    position:relative;padding:10px 14px;border-radius:10px;font-weight:600;font-size:.95rem;color:#22364d;
+    transition:color .2s ease,background-color .2s ease;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;inset-inline:14px;bottom:4px;height:2px;border-radius:2px;
+    background:var(--teal);transform:scaleX(0);transform-origin:inline-start;transition:transform .3s var(--ease);
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--teal);}
+  .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+  .nav-actions{display:flex;align-items:center;gap:10px;flex:none;}
+  .lang-btn{
+    display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;
+    background:var(--teal-soft);color:var(--teal);border:1px solid rgba(15,143,134,.22);
+    font-weight:700;font-size:.88rem;transition:background-color .25s ease,color .25s ease,transform .25s var(--ease);
+  }
+  .lang-btn:hover{background:var(--teal);color:#fff;transform:translateY(-1px);}
+  .lang-btn svg{width:16px;height:16px;}
+  .nav-cta{padding:11px 22px;font-size:.9rem;}
+  .menu-btn{
+    display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);
+    background:#fff;align-items:center;justify-content:center;
+  }
+  .menu-btn span{display:block;width:19px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:transform .3s var(--ease),background-color .2s;}
+  .menu-btn span::before,.menu-btn span::after{
+    content:"";position:absolute;left:0;width:19px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s var(--ease);
+  }
+  .menu-btn span::before{top:-6px;}
+  .menu-btn span::after{top:6px;}
+  .menu-btn[aria-expanded="true"] span{background:transparent;}
+  .menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+  .menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+
+  .mobile-menu{
+    display:none;border-top:1px solid var(--line);background:#fff;
+    max-height:0;overflow:hidden;transition:max-height .4s var(--ease);
+  }
+  .mobile-menu.is-open{max-height:420px;}
+  .mobile-menu ul{padding:12px 0 20px;}
+  .mobile-menu a{display:block;padding:13px 4px;font-weight:600;border-bottom:1px solid rgba(11,26,48,.06);}
+  .mobile-menu a:last-child{border-bottom:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(1100px 620px at 82% -8%, rgba(20,179,163,.32), transparent 60%),
+      radial-gradient(760px 520px at 6% 110%, rgba(15,143,134,.22), transparent 62%),
+      linear-gradient(150deg,#0b1a30 0%,#0c2038 48%,#0a1729 100%);
+    padding:clamp(60px,8vw,104px) 0 clamp(70px,9vw,116px);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse at 50% 40%, #000 25%, transparent 78%);
+    -webkit-mask-image:radial-gradient(ellipse at 50% 40%, #000 25%, transparent 78%);
+  }
+  .hero-glow{
+    position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);
+    background:rgba(20,179,163,.28);top:-160px;inset-inline-end:-120px;pointer-events:none;
+    animation:float 12s ease-in-out infinite;
+  }
+  .hero-grid{
+    position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;
+    gap:clamp(32px,5vw,64px);align-items:center;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 10px;border-radius:999px;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    font-size:.82rem;font-weight:600;color:#d7e6e4;margin-bottom:22px;
+  }
+  .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--teal-light);box-shadow:0 0 0 4px rgba(20,179,163,.2);}
+  .hero h1{
+    font-size:clamp(2rem,4.6vw,3.45rem);font-weight:800;line-height:1.22;letter-spacing:-.6px;
+    margin-bottom:20px;
+  }
+  html[lang="fr"] .hero h1{line-height:1.18;letter-spacing:-1.2px;font-size:clamp(1.8rem,4vw,3.05rem);}
+  .hero h1 .accent{
+    background:linear-gradient(100deg,var(--teal-light),#7fe4d6);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{color:#c3d3dd;font-size:clamp(.98rem,1.4vw,1.1rem);max-width:56ch;margin-bottom:32px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px;}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px 22px;}
+  .hero-chips li{display:flex;align-items:center;gap:8px;font-size:.88rem;color:#b6c8d3;font-weight:600;}
+  .hero-chips svg{width:17px;height:17px;color:var(--teal-light);flex:none;}
+
+  .hero-visual{position:relative;}
+  .glass-card{
+    background:linear-gradient(160deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.16);border-radius:22px;
+    padding:18px;box-shadow:var(--shadow-lg);backdrop-filter:blur(6px);
+    animation:rise .9s var(--ease) both;
+  }
+  .window-bar{display:flex;align-items:center;gap:7px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:16px;}
+  .window-bar i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.28);display:block;}
+  .window-bar i:first-child{background:#ff7a6b;}
+  .window-bar i:nth-child(2){background:#f7c948;}
+  .window-bar i:nth-child(3){background:var(--teal-light);}
+  .window-bar span{margin-inline-start:auto;font-size:.72rem;color:#93aab8;letter-spacing:.08em;}
+  .code-lines{display:grid;gap:11px;direction:ltr;}
+  .code-lines div{height:9px;border-radius:6px;background:rgba(255,255,255,.16);}
+  .code-lines div:nth-child(1){width:62%;background:rgba(20,179,163,.75);}
+  .code-lines div:nth-child(2){width:88%;}
+  .code-lines div:nth-child(3){width:74%;background:rgba(217,203,166,.45);}
+  .code-lines div:nth-child(4){width:46%;}
+  .code-lines div:nth-child(5){width:80%;background:rgba(20,179,163,.45);}
+  .code-lines div:nth-child(6){width:34%;}
+  .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;}
+  .mini-stats div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 10px;text-align:center;}
+  .mini-stats strong{display:block;font-size:1.05rem;color:#fff;font-weight:700;}
+  .mini-stats small{font-size:.7rem;color:#9db4c1;letter-spacing:.03em;}
+  .float-badge{
+    position:absolute;bottom:-22px;inset-inline-start:-18px;display:flex;align-items:center;gap:10px;
+    background:#fff;color:var(--ink);border-radius:14px;padding:11px 16px;box-shadow:var(--shadow-md);
+    animation:float 7s ease-in-out infinite;
+  }
+  .float-badge .pulse{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(15,143,134,.5);animation:pulse 2.4s infinite;}
+  .float-badge span{font-size:.82rem;font-weight:700;white-space:nowrap;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--bg);}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:22px;}
+  .card{
+    position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px 26px 30px;box-shadow:var(--shadow-sm);overflow:hidden;
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s ease;
+  }
+  .card::before{
+    content:"";position:absolute;inset-block-start:0;inset-inline:0;height:3px;
+    background:linear-gradient(90deg,var(--teal),var(--teal-light));
+    transform:scaleX(0);transform-origin:inline-start;transition:transform .45s var(--ease);
+  }
+  .card:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:rgba(15,143,134,.28);}
+  .card:hover::before{transform:scaleX(1);}
+  .card-icon{
+    width:56px;height:56px;border-radius:16px;display:grid;place-items:center;
+    background:var(--teal-soft);color:var(--teal);margin-bottom:22px;
+    transition:background-color .35s ease,color .35s ease,transform .35s var(--ease);
+  }
+  .card:hover .card-icon{background:var(--teal);color:#fff;transform:rotate(-4deg) scale(1.04);}
+  .card-icon svg{width:27px;height:27px;}
+  .card h3{font-size:1.14rem;font-weight:800;margin-bottom:10px;}
+  .card p{color:var(--muted);font-size:.94rem;line-height:1.85;}
+  .card-index{
+    position:absolute;inset-block-start:26px;inset-inline-end:24px;
+    font-size:.76rem;font-weight:700;color:rgba(11,26,48,.16);letter-spacing:.1em;
+  }
+
+  /* ---------- Portfolio ---------- */
+  .portfolio{background:#fff;}
+  .portfolio-card{
+    position:relative;overflow:hidden;border-radius:28px;color:#fff;
+    background:
+      radial-gradient(700px 420px at 88% 8%, rgba(20,179,163,.3), transparent 62%),
+      linear-gradient(140deg,#0b1a30,#0d2338 60%,#0a1729);
+    border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow-lg);
+    display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,52px);
+    padding:clamp(28px,4vw,52px);align-items:center;
+  }
+  .portfolio-media{position:relative;order:1;}
+  .app-shot{
+    position:relative;aspect-ratio:4/3.2;border-radius:20px;overflow:hidden;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.02)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, transparent 2px 14px);
+    border:1px dashed rgba(255,255,255,.28);
+    display:grid;place-items:center;text-align:center;padding:26px;
+  }
+  .app-shot .shot-icon{
+    width:68px;height:68px;border-radius:20px;display:grid;place-items:center;margin:0 auto 14px;
+    background:rgba(20,179,163,.18);border:1px solid rgba(20,179,163,.4);color:var(--teal-light);
+  }
+  .app-shot .shot-icon svg{width:30px;height:30px;}
+  .app-shot p{font-size:.85rem;color:#a9c0cc;line-height:1.7;max-width:22ch;margin-inline:auto;}
+  .app-shot .shot-label{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#6f8a99;margin-top:8px;}
+  .app-shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+
+  .portfolio-body{order:2;}
+  .pill{
+    display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:999px;
+    background:rgba(20,179,163,.16);border:1px solid rgba(20,179,163,.32);
+    color:#8fe6da;font-size:.76rem;font-weight:700;letter-spacing:.06em;margin-bottom:18px;
+  }
+  .portfolio-body h3{font-size:clamp(1.4rem,2.6vw,2rem);font-weight:800;line-height:1.3;margin-bottom:14px;}
+  .portfolio-body > p{color:#bccdd7;font-size:.98rem;line-height:1.9;margin-bottom:22px;}
+  .feature-list{display:grid;gap:11px;margin-bottom:30px;}
+  .feature-list li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:#d5e2e8;font-weight:600;}
+  .feature-list svg{width:18px;height:18px;color:var(--teal-light);flex:none;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--bg);}
+  .contact-wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.5vw,58px);align-items:start;}
+  .contact-info h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;line-height:1.3;margin-bottom:16px;}
+  .contact-info > p{color:var(--muted);margin-bottom:30px;max-width:42ch;}
+  .info-list{display:grid;gap:18px;margin-bottom:32px;}
+  .info-item{display:flex;align-items:center;gap:14px;}
+  .info-item .ico{
+    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;
+    background:#fff;border:1px solid var(--line);color:var(--teal);box-shadow:var(--shadow-sm);
+  }
+  .info-item .ico svg{width:20px;height:20px;}
+  .info-item small{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#8a99a8;font-weight:700;}
+  .info-item strong{font-weight:700;font-size:.98rem;}
+  .info-item a:hover{color:var(--teal);}
+
+  .form-card{
+    background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,3.4vw,38px);
+    box-shadow:var(--shadow-md);
+  }
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:.85rem;font-weight:700;margin-bottom:8px;color:#243a52;}
+  .field input,.field textarea{
+    width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(11,26,48,.14);
+    background:#fbfdfe;font:inherit;font-size:.94rem;color:var(--ink);
+    transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease;
+  }
+  .field textarea{min-height:132px;resize:vertical;}
+  .field input:focus,.field textarea:focus{
+    outline:none;border-color:var(--teal);background:#fff;
+    box-shadow:0 0 0 4px rgba(15,143,134,.12);
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#9aabb8;}
+  html[dir="rtl"] .field input,html[dir="rtl"] .field textarea{text-align:right;}
+  .hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  .form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:6px;}
+  .form-note{font-size:.78rem;color:#8a99a8;line-height:1.6;}
+  .form-status{
+    margin-top:16px;font-size:.88rem;font-weight:700;border-radius:12px;padding:12px 15px;display:none;
+    border:1px solid transparent;line-height:1.6;
+  }
+  .form-status.show{display:block;}
+  .form-status.is-success{background:rgba(15,143,134,.1);border-color:rgba(15,143,134,.3);color:#0b6f68;}
+  .form-status.is-error{background:rgba(198,63,63,.08);border-color:rgba(198,63,63,.28);color:#a53333;}
+  .form-status.is-warn{background:rgba(217,169,40,.12);border-color:rgba(217,169,40,.4);color:#8a6410;}
+  .btn[disabled]{opacity:.65;cursor:not-allowed;transform:none;}
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    position:relative;background:#0a1729;color:#c2d2db;padding:clamp(52px,6vw,78px) 0 0;overflow:hidden;
+  }
+  .site-footer::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--teal),var(--teal-light),transparent);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:44px;}
+  .footer-brand .logo-chip{
+    display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:14px;
+    padding:10px 14px;margin-bottom:18px;box-shadow:0 10px 24px -16px rgba(0,0,0,.6);
+  }
+  .footer-brand .logo-chip img{height:44px;width:auto;}
+  .footer-brand p{font-size:.9rem;color:#93a8b4;max-width:34ch;line-height:1.85;}
+  .footer-col h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:700;}
+  .footer-col li{margin-bottom:10px;}
+  .footer-col a,.footer-col span{font-size:.9rem;color:#9fb3bf;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--teal-light);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.09);padding:20px 0;
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    font-size:.8rem;color:#7d919d;
+  }
+  .footer-bottom .phone{display:inline-flex;align-items:center;gap:7px;color:#cfe0e7;font-weight:700;}
+  .footer-bottom .phone:hover{color:var(--teal-light);}
+
+  /* ---------- Animations ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease);transition-delay:var(--d,0ms);}
+  .reveal.is-visible{opacity:1;transform:none;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,143,134,.55);}70%{box-shadow:0 0 0 12px rgba(15,143,134,0);}100%{box-shadow:0 0 0 0 rgba(15,143,134,0);}}
+
+  :focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px;}
+  .skip-link{position:absolute;inset-inline-start:-9999px;top:10px;background:#fff;color:var(--ink);padding:10px 18px;border-radius:10px;z-index:100;font-weight:700;}
+  .skip-link:focus{inset-inline-start:16px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{max-width:520px;margin-inline:auto;}
+    .float-badge{inset-inline-start:auto;inset-inline-end:14px;}
+    .portfolio-card{grid-template-columns:1fr;}
+    .portfolio-media{order:2;}
+    .portfolio-body{order:1;}
+    .contact-wrap{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .footer-brand{grid-column:1/-1;}
+  }
+  @media (max-width:860px){
+    .nav-links,.nav-cta{display:none;}
+    .menu-btn{display:flex;}
+    .mobile-menu{display:block;}
+    .brand img{height:44px;}
+  }
+  @media (max-width:600px){
+    :root{--nav-h:68px;}
+    .section{padding:56px 0;}
+    .hero{padding-top:44px;}
+    .hero-actions .btn{width:100%;}
+    .mini-stats{grid-template-columns:1fr 1fr 1fr;}
+    .mini-stats strong{font-size:.95rem;}
+    .footer-grid{grid-template-columns:1fr;}
+    .footer-bottom{justify-content:flex-start;}
+    .form-card{padding:22px 18px;}
+    .card{padding:26px 22px;}
+    .portfolio-card{border-radius:20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">تخطَّ إلى المحتوى</a>
+
+<!-- ================= NAVBAR ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="Attia Web Solutions">
+      <img src="./logo.png" alt="Attia Web Solutions" width="1600" height="1029" />
+    </a>
+
+    <nav aria-label="Navigation">
+      <ul class="nav-links">
+        <li><a href="#top" class="active" data-i18n="nav.home">الرئيسية</a></li>
+        <li><a href="#services" data-i18n="nav.services">خدماتنا</a></li>
+        <li><a href="#portfolio" data-i18n="nav.portfolio">أعمالنا</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Français" data-i18n-aria="lang.aria">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/>
+        </svg>
+        <span id="langLabel">Français</span>
+      </button>
+      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">ابدأ مشروعك</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <ul>
+        <li><a href="#top" data-i18n="nav.home">الرئيسية</a></li>
+        <li><a href="#services" data-i18n="nav.services">خدماتنا</a></li>
+        <li><a href="#portfolio" data-i18n="nav.portfolio">أعمالنا</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
+        <li><a href="#contact" data-i18n="nav.cta">ابدأ مشروعك</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <span class="hero-glow" aria-hidden="true"></span>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">Attia Web Solutions — شريكك الرقمي</span></span>
+        <h1>
+          <span data-i18n="hero.title1">نبتكر حلولاً رقمية</span>
+          <span class="accent" data-i18n="hero.title2">تسهّل إدارة أعمالك</span>
+        </h1>
+        <p class="lead" data-i18n="hero.desc">نصمّم ونطوّر مواقع وأنظمة إدارة مخصّصة تجمع بين الأداء العالي والتصميم الاحترافي، لتمنح مؤسستك حضوراً رقمياً يليق بها.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">
+            <span data-i18n="hero.cta1">اكتشف خدماتنا</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">تواصل معنا</a>
+        </div>
+        <ul class="hero-chips">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.chip1">تصميم متجاوب</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.chip2">أداء عالٍ</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.chip3">دعم مستمر</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="glass-card">
+          <div class="window-bar"><i></i><i></i><i></i><span>attia-web-solutions</span></div>
+          <div class="code-lines" aria-hidden="true">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
+          <div class="mini-stats">
+            <div><strong>Web</strong><small data-i18n="hero.stat1">مواقع</small></div>
+            <div><strong>Apps</strong><small data-i18n="hero.stat2">أنظمة إدارة</small></div>
+            <div><strong>UI/UX</strong><small data-i18n="hero.stat3">تصميم</small></div>
+          </div>
+        </div>
+        <div class="float-badge"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.float">متاحون لمشروعك الجديد</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow" data-i18n="services.eyebrow">خدماتنا</span>
+        <h2 class="section-title" data-i18n="services.title">حلول رقمية متكاملة</h2>
+        <p class="section-sub" data-i18n="services.sub">من الفكرة إلى الإطلاق والدعم: نغطي كل ما تحتاجه لتنطلق أعمالك رقمياً بثقة.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" style="--d:0ms">
+          <span class="card-index">01</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>
+            </svg>
+          </div>
+          <h3 data-i18n="s1.title">تطوير ويب</h3>
+          <p data-i18n="s1.desc">مواقع حديثة وسريعة مبنية بأحدث التقنيات، متوافقة مع جميع الشاشات ومهيّأة لمحركات البحث.</p>
+        </article>
+
+        <article class="card reveal" style="--d:90ms">
+          <span class="card-index">02</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/>
+              <rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="s2.title">برمجيات إدارة أعمال</h3>
+          <p data-i18n="s2.desc">أنظمة إدارة مخصّصة لمكاتب المحاماة والمحاسبة والمخزون، ترشّد عملك اليومي وتوفّر وقتك.</p>
+        </article>
+
+        <article class="card reveal" style="--d:180ms">
+          <span class="card-index">03</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 0-5H13a2 2 0 0 1 0-4h5a3 3 0 0 0 3-3 6 6 0 0 0-6-6z"/>
+              <circle cx="7.5" cy="10.5" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="16.5" cy="10" r="1.2"/>
+            </svg>
+          </div>
+          <h3 data-i18n="s3.title">تصميم مواقع</h3>
+          <p data-i18n="s3.desc">واجهات أنيقة وتجربة استخدام مدروسة تعكس هوية مؤسستك وتبني الثقة مع زوّارك.</p>
+        </article>
+
+        <article class="card reveal" style="--d:270ms">
+          <span class="card-index">04</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.5 11.5V7a2 2 0 0 0-2-2h-4.5L4 15v3a2 2 0 0 0 2 2h3z"/>
+              <path d="M15 14a4 4 0 0 0 4 4M9.5 8.5a4 4 0 0 1 4 4"/>
+            </svg>
+          </div>
+          <h3 data-i18n="s4.title">حلول مخصّصة</h3>
+          <p data-i18n="s4.desc">أدوات ويب مصمّمة حسب احتياجك: لوحات تحكم، أتمتة، ربط الأنظمة وتقارير ذكية.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="portfolio.eyebrow">أعمالنا</span>
+        <h2 class="section-title" data-i18n="portfolio.title">مشاريع نفتخر بها</h2>
+        <p class="section-sub" data-i18n="portfolio.sub">نماذج حقيقية من حلول طوّرناها لتبسيط العمل اليومي ورفع الإنتاجية.</p>
+      </div>
+
+      <article class="portfolio-card reveal">
+        <div class="portfolio-media">
+          <!-- مكان صورة التطبيق: استبدل هذا البلوك بوسم الصورة التالي
+               <img src="./diwan.png" alt="ديوان — نظام إدارة مكتب المحاماة" /> -->
+          <div class="app-shot">
+            <div>
+              <div class="shot-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16v13H4zM8 21h8M12 17v4"/>
+                </svg>
+              </div>
+              <p data-i18n="portfolio.placeholder">مساحة مخصّصة لصورة التطبيق</p>
+              <span class="shot-label" data-i18n="portfolio.placeholderLabel">Capture d'écran</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-body">
+          <span class="pill" data-i18n="portfolio.badge">تطبيق مميز</span>
+          <h3 data-i18n="portfolio.appTitle">ديوان — نظام إدارة مكتب المحاماة</h3>
+          <p data-i18n="portfolio.appDesc">تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة وحماية لبيانات الموكلين.</p>
+          <ul class="feature-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f1">إدارة القضايا والموكلين</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f2">الجلسات والمواعيد</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="portfolio.f3">الوثائق والفواتير</span></li>
+          </ul>
+          <a class="btn btn-primary" href="https://diwanpro.github.io/Diwan.app/" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="portfolio.cta">زيارة التطبيق</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="container contact-wrap">
+      <div class="contact-info reveal">
+        <span class="eyebrow" data-i18n="contact.eyebrow">تواصل معنا</span>
+        <h2 data-i18n="contact.title">لنبنِ مشروعك القادم معاً</h2>
+        <p data-i18n="contact.sub">أخبرنا بفكرتك أو حاجتك، وسنعود إليك بتصوّر واضح خلال 24 ساعة.</p>
+        <div class="info-list">
+          <div class="info-item">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <div><small data-i18n="contact.phoneLabel">الهاتف</small><strong><a href="tel:+213798726063" dir="ltr">0798726063</a></strong></div>
+          </div>
+          <div class="info-item">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <div><small data-i18n="contact.emailLabel">البريد الإلكتروني</small><strong><a href="mailto:contact@attia-web.com" dir="ltr">contact@attia-web.com</a></strong></div>
+          </div>
+          <div class="info-item">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><small data-i18n="contact.hoursLabel">وقت الرد</small><strong data-i18n="contact.hours">خلال 24 ساعة</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <!-- ضع رابط Formspree الخاص بك مكان YOUR_FORM_ID -->
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="field">
+            <label for="name" data-i18n="form.name">الاسم الكامل</label>
+            <input type="text" id="name" name="name" autocomplete="name" required
+                   placeholder="مثال: محمد عطية" data-i18n-placeholder="form.namePh" />
+          </div>
+          <div class="field">
+            <label for="email" data-i18n="form.email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" autocomplete="email" required dir="ltr"
+                   placeholder="you@example.com" data-i18n-placeholder="form.emailPh" />
+          </div>
+          <div class="field">
+            <label for="message" data-i18n="form.message">رسالتك</label>
+            <textarea id="message" name="message" required
+                      placeholder="أخبرنا عن مشروعك..." data-i18n-placeholder="form.messagePh"></textarea>
+          </div>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-foot">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <span data-i18n="form.submit">إرسال الرسالة</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+            </button>
+            <span class="form-note" data-i18n="form.note">بياناتك تُستخدم للتواصل معك فقط.</span>
+          </div>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-chip"><img src="./logo.png" alt="Attia Web Solutions" width="1600" height="1029" /></span>
+        <p data-i18n="footer.tagline">نبتكر حلولاً رقمية تسهّل إدارة أعمالك — من التصميم إلى التطوير والدعم.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.links">روابط سريعة</h4>
+        <ul>
+          <li><a href="#services" data-i18n="nav.services">خدماتنا</a></li>
+          <li><a href="#portfolio" data-i18n="nav.portfolio">أعمالنا</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contactTitle">معلومات التواصل</h4>
+        <ul>
+          <li><a href="tel:+213798726063" dir="ltr">0798726063</a></li>
+          <li><a href="mailto:contact@attia-web.com" dir="ltr">contact@attia-web.com</a></li>
+          <li><a href="https://diwanpro.github.io/Diwan.app/" target="_blank" rel="noopener noreferrer" data-i18n="footer.diwan">تطبيق ديوان</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 Attia Web Solutions. جميع الحقوق محفوظة.</span>
+      <a class="phone" href="tel:+213798726063" dir="ltr">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        0798726063
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============================================================
+     1. BILINGUAL CONTENT (Arabic / French)
+     ============================================================ */
+  var I18N = {
+    ar: {
+      dir: "rtl",
+      title: "Attia Web Solutions — نبتكر حلولاً رقمية تسهّل إدارة أعمالك",
+      "lang.label": "Français",
+      "lang.aria": "التبديل إلى الفرنسية",
+      "skip": "تخطَّ إلى المحتوى",
+      "nav.home": "الرئيسية",
+      "nav.services": "خدماتنا",
+      "nav.portfolio": "أعمالنا",
+      "nav.contact": "تواصل معنا",
+      "nav.cta": "ابدأ مشروعك",
+      "hero.badge": "Attia Web Solutions — شريكك الرقمي",
+      "hero.title1": "نبتكر حلولاً رقمية",
+      "hero.title2": "تسهّل إدارة أعمالك",
+      "hero.desc": "نصمّم ونطوّر مواقع وأنظمة إدارة مخصّصة تجمع بين الأداء العالي والتصميم الاحترافي، لتمنح مؤسستك حضوراً رقمياً يليق بها.",
+      "hero.cta1": "اكتشف خدماتنا",
+      "hero.cta2": "تواصل معنا",
+      "hero.chip1": "تصميم متجاوب",
+      "hero.chip2": "أداء عالٍ",
+      "hero.chip3": "دعم مستمر",
+      "hero.stat1": "مواقع",
+      "hero.stat2": "أنظمة إدارة",
+      "hero.stat3": "تصميم",
+      "hero.float": "متاحون لمشروعك الجديد",
+      "services.eyebrow": "خدماتنا",
+      "services.title": "حلول رقمية متكاملة",
+      "services.sub": "من الفكرة إلى الإطلاق والدعم: نغطي كل ما تحتاجه لتنطلق أعمالك رقمياً بثقة.",
+      "s1.title": "تطوير ويب",
+      "s1.desc": "مواقع حديثة وسريعة مبنية بأحدث التقنيات، متوافقة مع جميع الشاشات ومهيّأة لمحركات البحث.",
+      "s2.title": "برمجيات إدارة أعمال",
+      "s2.desc": "أنظمة إدارة مخصّصة لمكاتب المحاماة والمحاسبة والمخزون، ترشّد عملك اليومي وتوفّر وقتك.",
+      "s3.title": "تصميم مواقع",
+      "s3.desc": "واجهات أنيقة وتجربة استخدام مدروسة تعكس هوية مؤسستك وتبني الثقة مع زوّارك.",
+      "s4.title": "حلول مخصّصة",
+      "s4.desc": "أدوات ويب مصمّمة حسب احتياجك: لوحات تحكم، أتمتة، ربط الأنظمة وتقارير ذكية.",
+      "portfolio.eyebrow": "أعمالنا",
+      "portfolio.title": "مشاريع نفتخر بها",
+      "portfolio.sub": "نماذج حقيقية من حلول طوّرناها لتبسيط العمل اليومي ورفع الإنتاجية.",
+      "portfolio.badge": "تطبيق مميز",
+      "portfolio.appTitle": "ديوان — نظام إدارة مكتب المحاماة",
+      "portfolio.appDesc": "تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة وحماية لبيانات الموكلين.",
+      "portfolio.f1": "إدارة القضايا والموكلين",
+      "portfolio.f2": "الجلسات والمواعيد",
+      "portfolio.f3": "الوثائق والفواتير",
+      "portfolio.cta": "زيارة التطبيق",
+      "portfolio.placeholder": "مساحة مخصّصة لصورة التطبيق",
+      "portfolio.placeholderLabel": "لقطة شاشة",
+      "contact.eyebrow": "تواصل معنا",
+      "contact.title": "لنبنِ مشروعك القادم معاً",
+      "contact.sub": "أخبرنا بفكرتك أو حاجتك، وسنعود إليك بتصوّر واضح خلال 24 ساعة.",
+      "contact.phoneLabel": "الهاتف",
+      "contact.emailLabel": "البريد الإلكتروني",
+      "contact.hoursLabel": "وقت الرد",
+      "contact.hours": "خلال 24 ساعة",
+      "form.name": "الاسم الكامل",
+      "form.namePh": "مثال: محمد عطية",
+      "form.email": "البريد الإلكتروني",
+      "form.emailPh": "you@example.com",
+      "form.message": "رسالتك",
+      "form.messagePh": "أخبرنا عن مشروعك...",
+      "form.submit": "إرسال الرسالة",
+      "form.sending": "جارٍ الإرسال...",
+      "form.note": "بياناتك تُستخدم للتواصل معك فقط.",
+      "form.success": "شكراً لك! تم إرسال رسالتك بنجاح، سنعاود التواصل معك قريباً.",
+      "form.error": "تعذّر إرسال الرسالة. يرجى المحاولة مجدداً أو الاتصال بنا هاتفياً.",
+      "form.invalid": "يرجى تعبئة جميع الحقول بريد إلكتروني صحيح.",
+      "form.unconfigured": "النموذج جاهز: أضف رابط Formspree الخاص بك في خاصية action لتفعيل الإرسال.",
+      "footer.tagline": "نبتكر حلولاً رقمية تسهّل إدارة أعمالك — من التصميم إلى التطوير والدعم.",
+      "footer.links": "روابط سريعة",
+      "footer.contactTitle": "معلومات التواصل",
+      "footer.diwan": "تطبيق ديوان",
+      "footer.rights": "© 2026 Attia Web Solutions. جميع الحقوق محفوظة."
+    },
+    fr: {
+      dir: "ltr",
+      title: "Attia Web Solutions — Des solutions numériques pour votre gestion",
+      "lang.label": "العربية",
+      "lang.aria": "Passer à l'arabe",
+      "skip": "Aller au contenu",
+      "nav.home": "Accueil",
+      "nav.services": "Services",
+      "nav.portfolio": "Réalisations",
+      "nav.contact": "Contact",
+      "nav.cta": "Démarrer un projet",
+      "hero.badge": "Attia Web Solutions — votre partenaire numérique",
+      "hero.title1": "Des solutions numériques",
+      "hero.title2": "qui simplifient votre gestion",
+      "hero.desc": "Nous concevons et développons des sites web et des logiciels de gestion sur mesure, alliant performance, design professionnel et simplicité d'usage.",
+      "hero.cta1": "Découvrir nos services",
+      "hero.cta2": "Nous contacter",
+      "hero.chip1": "Design responsive",
+      "hero.chip2": "Haute performance",
+      "hero.chip3": "Support continu",
+      "hero.stat1": "Sites web",
+      "hero.stat2": "Logiciels",
+      "hero.stat3": "UI/UX",
+      "hero.float": "Disponibles pour votre projet",
+      "services.eyebrow": "Nos services",
+      "services.title": "Des solutions complètes",
+      "services.sub": "De l'idée au lancement et au support : tout ce qu'il faut pour digitaliser votre activité sereinement.",
+      "s1.title": "Développement web",
+      "s1.desc": "Des sites modernes et rapides, adaptés à tous les écrans et optimisés pour les moteurs de recherche.",
+      "s2.title": "Logiciels de gestion",
+      "s2.desc": "Des applications métier sur mesure (cabinets d'avocats, comptabilité, stock) qui automatisent votre quotidien.",
+      "s3.title": "Design de sites",
+      "s3.desc": "Des interfaces élégantes et une expérience utilisateur réfléchie, à l'image de votre identité.",
+      "s4.title": "Solutions sur mesure",
+      "s4.desc": "Des outils web adaptés à vos besoins : tableaux de bord, automatisation, intégrations et rapports intelligents.",
+      "portfolio.eyebrow": "Réalisations",
+      "portfolio.title": "Des projets dont nous sommes fiers",
+      "portfolio.sub": "Des solutions concrètes, pensées pour simplifier le travail quotidien et gagner en productivité.",
+      "portfolio.badge": "Projet phare",
+      "portfolio.appTitle": "Diwan — Gestion de cabinet d'avocats",
+      "portfolio.appDesc": "Une application web complète pour la gestion d'un cabinet d'avocats en Algérie : dossiers, clients, audiences et documents réunis au même endroit, avec une interface arabe soignée.",
+      "portfolio.f1": "Dossiers et clients",
+      "portfolio.f2": "Audiences et échéances",
+      "portfolio.f3": "Documents et facturation",
+      "portfolio.cta": "Visiter l'application",
+      "portfolio.placeholder": "Emplacement réservé à la capture de l'application",
+      "portfolio.placeholderLabel": "Aperçu",
+      "contact.eyebrow": "Contact",
+      "contact.title": "Construisons votre prochain projet",
+      "contact.sub": "Parlez-nous de votre idée ou de votre besoin : nous revenons vers vous avec une proposition claire sous 24 heures.",
+      "contact.phoneLabel": "Téléphone",
+      "contact.emailLabel": "E-mail",
+      "contact.hoursLabel": "Délai de réponse",
+      "contact.hours": "Sous 24 heures",
+      "form.name": "Nom complet",
+      "form.namePh": "Ex. : Mohamed Attia",
+      "form.email": "Adresse e-mail",
+      "form.emailPh": "vous@exemple.com",
+      "form.message": "Votre message",
+      "form.messagePh": "Parlez-nous de votre projet...",
+      "form.submit": "Envoyer le message",
+      "form.sending": "Envoi en cours...",
+      "form.note": "Vos données servent uniquement à vous répondre.",
+      "form.success": "Merci ! Votre message a bien été envoyé, nous vous répondrons rapidement.",
+      "form.error": "L'envoi a échoué. Merci de réessayer ou de nous appeler.",
+      "form.invalid": "Merci de remplir tous les champs avec un e-mail valide.",
+      "form.unconfigured": "Formulaire prêt : ajoutez votre lien Formspree dans l'attribut action pour activer l'envoi.",
+      "footer.tagline": "Des solutions numériques qui simplifient votre gestion — du design au développement et au support.",
+      "footer.links": "Liens rapides",
+      "footer.contactTitle": "Coordonnées",
+      "footer.diwan": "Application Diwan",
+      "footer.rights": "© 2026 Attia Web Solutions. Tous droits réservés."
+    }
+  };
+
+  var STORAGE_KEY = "attia-lang";
+  var htmlEl = document.documentElement;
+  var langToggle = document.getElementById("langToggle");
+  var langLabel = document.getElementById("langLabel");
+  var currentLang = "ar";
+
+  function translate(lang) {
+    var dict = I18N[lang] || I18N.ar;
+    currentLang = I18N[lang] ? lang : "ar";
+
+    htmlEl.setAttribute("lang", currentLang);
+    htmlEl.setAttribute("dir", dict.dir);
+    document.title = dict.title;
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-placeholder");
+      if (dict[key] != null) el.setAttribute("placeholder", dict[key]);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-aria");
+      if (dict[key] != null) el.setAttribute("aria-label", dict[key]);
+    });
+
+    langLabel.textContent = dict["lang.label"];
+    try { localStorage.setItem(STORAGE_KEY, currentLang); } catch (e) {}
+    if (statusKey) showStatus(statusKey, statusType);
+  }
+
+  langToggle.addEventListener("click", function () {
+    translate(currentLang === "ar" ? "fr" : "ar");
+  });
+
+  var savedLang = null;
+  try { savedLang = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  translate(savedLang === "fr" ? "fr" : "ar");
+
+  /* ============================================================
+     2. MOBILE MENU
+     ============================================================ */
+  var menuBtn = document.getElementById("menuBtn");
+  var mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", function () {
+    var open = menuBtn.getAttribute("aria-expanded") === "true";
+    menuBtn.setAttribute("aria-expanded", String(!open));
+    mobileMenu.classList.toggle("is-open", !open);
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      menuBtn.setAttribute("aria-expanded", "false");
+      mobileMenu.classList.remove("is-open");
+    });
+  });
+
+  /* ============================================================
+     3. HEADER SHADOW + ACTIVE LINK
+     ============================================================ */
+  var header = document.getElementById("siteHeader");
+  function onScroll() {
+    header.classList.toggle("is-stuck", window.scrollY > 8);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+  var sections = navLinks.map(function (link) {
+    return document.querySelector(link.getAttribute("href"));
+  }).filter(Boolean);
+
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (link) {
+          var href = link.getAttribute("href");
+          link.classList.toggle("active", href === "#" + entry.target.id);
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function (section) { spy.observe(section); });
+  }
+
+  /* ============================================================
+     4. SCROLL REVEAL
+     ============================================================ */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  /* ============================================================
+     5. CONTACT FORM (Formspree)
+     ============================================================ */
+  var form = document.getElementById("contactForm");
+  var statusEl = document.getElementById("formStatus");
+  var submitBtn = document.getElementById("submitBtn");
+  var statusKey = null;
+  var statusType = null;
+
+  function showStatus(key, type) {
+    statusKey = key;
+    statusType = type || "success";
+    var dict = I18N[currentLang];
+    statusEl.textContent = dict[key] || "";
+    statusEl.className = "form-status show is-" + (type || "success");
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var name = form.elements.name.value.trim();
+    var email = form.elements.email.value.trim();
+    var message = form.elements.message.value.trim();
+    var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+    if (!name || !validEmail || !message) {
+      showStatus("form.invalid", "error");
+      (!name ? form.elements.name : !validEmail ? form.elements.email : form.elements.message).focus();
+      return;
+    }
+
+    var endpoint = form.getAttribute("action") || "";
+    if (endpoint.indexOf("YOUR_FORM_ID") !== -1) {
+      showStatus("form.unconfigured", "warn");
+      return;
+    }
+
+    var submitLabel = submitBtn.querySelector("span");
+    var originalLabel = submitLabel.textContent;
+    submitLabel.textContent = I18N[currentLang]["form.sending"];
+    submitBtn.disabled = true;
+
+    fetch(endpoint, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error("Request failed: " + response.status);
+        showStatus("form.success", "success");
+        form.reset();
+      })
+      .catch(function () {
+        showStatus("form.error", "error");
+      })
+      .then(function () {
+        submitLabel.textContent = I18N[currentLang]["form.submit"] || originalLabel;
+        submitBtn.disabled = false;
+      });
+  });
+})();
+</script>
+</body>
+</html>
