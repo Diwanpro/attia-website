@@ -5,8 +5,8 @@
 (function () {
   "use strict";
 
-  /* ضع هنا رابط Formspree الخاص بك (بديل: عدّل action في index.html) */
-  var FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+  /* رابط Formspree الخاص بالنموذج (بديل: عدّل action في index.html) */
+  var FORMSPREE_ENDPOINT = "https://formspree.io/f/mkjjpvjk";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
