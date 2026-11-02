@@ -525,6 +525,11 @@ html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
   box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,.14);
   backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);
 }
+/* two fields per row on desktop, stacked on small screens */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
+.field .opt{font-weight:600;font-size:.78rem;color:#8ba4b6;}
+@media (max-width:600px){.field-row{grid-template-columns:1fr;}}
+
 .form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:6px;}
 .form-note{font-size:.76rem;color:#8ba4b6;line-height:1.6;}
 .form-status{

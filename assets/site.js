@@ -210,13 +210,23 @@
       event.preventDefault();
 
       var name = form.elements.name.value.trim();
+      var phone = form.elements.phone.value.trim();
       var email = form.elements.email.value.trim();
+      var service = form.elements.service.value;
       var message = form.elements.message.value.trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+      var phoneDigits = phone.replace(/[^\d]/g, "");
 
-      if (!name || !validEmail || !message) {
-        showStatus("form.invalid", "error");
-        (!name ? form.elements.name : !validEmail ? form.elements.email : form.elements.message).focus();
+      var problem = !name ? ["form.invalidName", form.elements.name]
+        : phoneDigits.length < 8 || phoneDigits.length > 15 ? ["form.invalidPhone", form.elements.phone]
+        : !validEmail ? ["form.invalidEmail", form.elements.email]
+        : !service ? ["form.invalidService", form.elements.service]
+        : !message ? ["form.invalidMessage", form.elements.message]
+        : null;
+
+      if (problem) {
+        showStatus(problem[0], "error");
+        problem[1].focus();
         return;
       }
 

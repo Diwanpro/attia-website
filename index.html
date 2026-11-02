@@ -465,10 +465,39 @@
             <input type="text" id="name" name="name" autocomplete="name" required
                    placeholder="مثال: محمد عطية" data-i18n-placeholder="form.namePh" />
           </div>
-          <div class="field">
-            <label for="email" data-i18n="form.email">البريد الإلكتروني</label>
-            <input type="email" id="email" name="email" autocomplete="email" required dir="ltr"
-                   placeholder="you@example.com" data-i18n-placeholder="form.emailPh" />
+          <div class="field-row">
+            <div class="field">
+              <label for="phone" data-i18n="form.phone">رقم الهاتف</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required dir="ltr"
+                     placeholder="0xxx xx xx xx" data-i18n-placeholder="form.phonePh" />
+            </div>
+            <div class="field">
+              <label for="email" data-i18n="form.email">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" autocomplete="email" required dir="ltr"
+                     placeholder="you@example.com" data-i18n-placeholder="form.emailPh" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="service" data-i18n="form.service">نوع الخدمة</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected data-i18n="form.servicePh">اختر نوع الخدمة</option>
+                <option value="Web App" data-i18n="form.serviceWeb">تطبيق ويب</option>
+                <option value="Website" data-i18n="form.serviceSite">موقع إلكتروني</option>
+                <option value="Business Software" data-i18n="form.serviceSoftware">برنامج إدارة أعمال</option>
+                <option value="Tech Consultation" data-i18n="form.serviceConsult">استشارة تقنية</option>
+                <option value="Other" data-i18n="form.serviceOther">أخرى</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="budget" data-i18n="form.budget">الميزانية التقريبية <span class="opt" data-i18n="form.optional">(اختياري)</span></label>
+              <select id="budget" name="budget">
+                <option value="" selected data-i18n="form.budgetNone">غير محدد</option>
+                <option value="< 50 000 DZD" data-i18n="form.budgetLow">أقل من 50,000 دج</option>
+                <option value="50 000 - 100 000 DZD" data-i18n="form.budgetMid">50,000 - 100,000 دج</option>
+                <option value="> 100 000 DZD" data-i18n="form.budgetHigh">أكثر من 100,000 دج</option>
+              </select>
+            </div>
           </div>
           <div class="field">
             <label for="message" data-i18n="form.message">رسالتك</label>
