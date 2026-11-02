@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title data-i18n="admin.pageTitle">بوابة الإدارة — Attia Web Solutions</title>
+<meta name="theme-color" content="#0b1a30" />
+<link rel="icon" type="image/png" href="./logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./assets/base.css" />
+<link rel="stylesheet" href="./assets/admin.css" />
+<script src="./assets/i18n.js" defer></script>
+<script src="./assets/admin.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#adminMain" data-i18n="skip">تخطَّ إلى المحتوى</a>
+
+<!-- ================= LOGIN ================= -->
+<div class="login-view" id="loginView">
+  <div class="login-card">
+    <a class="login-brand" href="./index.html" aria-label="Attia Web Solutions">
+      <span class="logo-chip"><img src="./logo.png" alt="Attia Web Solutions" width="1600" height="1029" /></span>
+    </a>
+
+    <span class="eyebrow" data-i18n="admin.login.kicker">بوابة الإدارة</span>
+    <h1 data-i18n="admin.login.title">تسجيل الدخول</h1>
+    <p class="login-lead" data-i18n="admin.login.sub">مساحة خاصة بفريق Attia Web Solutions لمتابعة العملاء والمشاريع.</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="loginEmail" data-i18n="admin.login.email">البريد الإلكتروني</label>
+        <input type="email" id="loginEmail" name="email" autocomplete="username" dir="ltr"
+               placeholder="you@attia.dz" data-i18n-placeholder="admin.login.emailPh" required />
+      </div>
+      <div class="field">
+        <label for="loginPassword" data-i18n="admin.login.password">كلمة المرور</label>
+        <div class="pw-wrap">
+          <input type="password" id="loginPassword" name="password" autocomplete="current-password" dir="ltr"
+                 placeholder="••••••••" data-i18n-placeholder="admin.login.passwordPh" required />
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="عرض كلمة المرور">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <p class="login-error" id="loginError" role="alert"></p>
+
+      <button type="submit" class="btn btn-primary login-submit">
+        <span data-i18n="admin.login.submit">دخول إلى اللوحة</span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </button>
+      <button type="button" class="btn btn-outline login-demo" id="demoBtn" data-i18n="admin.login.demo">دخول تجريبي</button>
+    </form>
+
+    <p class="login-hint" data-i18n="admin.login.demoHint">واجهة محاكاة: أي بريد صحيح وكلمة مرور من ٦ أحرف تفتح اللوحة — لا تحقّق حقيقي بعد.</p>
+    <a class="login-back" href="./index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+      <span data-i18n="admin.login.back">العودة إلى الموقع</span>
+    </a>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div class="admin-shell" id="adminShell" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="side-brand">
+      <span class="logo-chip"><img src="./logo.png" alt="Attia Web Solutions" width="1600" height="1029" /></span>
+      <small data-i18n="admin.demoTag">بيانات تجريبية</small>
+    </div>
+
+    <nav class="side-nav" aria-label="Admin navigation">
+      <a class="side-link active" href="#" data-view="overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2" /><rect x="13" y="3" width="8" height="5" rx="2" /><rect x="13" y="10" width="8" height="11" rx="2" /><rect x="3" y="13" width="8" height="8" rx="2" /></svg>
+        <span data-i18n="admin.side.overview">نظرة عامة</span>
+      </a>
+      <a class="side-link" href="#" data-view="messages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m3 8 9 6 9-6" /></svg>
+        <span data-i18n="admin.side.messages">رسائل العملاء</span>
+        <span class="side-count" id="msgCount">3</span>
+      </a>
+      <a class="side-link" href="#" data-view="team">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2" /><path d="M3 20a6 6 0 0 1 12 0M16.5 5.5a3 3 0 0 1 0 5.6M18 20a5.5 5.5 0 0 0-2.2-4.4" /></svg>
+        <span data-i18n="admin.side.team">أعضاء الفريق</span>
+      </a>
+      <a class="side-link" href="#" data-view="projects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2.5h6.5A2.5 2.5 0 0 1 21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+        <span data-i18n="admin.side.projects">المشاريع</span>
+      </a>
+    </nav>
+
+    <div class="side-foot">
+      <a class="side-link" href="./index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg>
+        <span data-i18n="admin.site">عرض الموقع</span>
+      </a>
+      <div class="side-user">
+        <span class="avatar" aria-hidden="true">ع</span>
+        <div>
+          <b>عبد الرحمن عطية</b>
+          <small>attiawebsite@gmail.com</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="main">
+    <header class="topbar">
+      <button type="button" class="side-toggle" id="sideToggle" aria-label="القائمة" data-i18n-aria="nav.menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
+        <input type="search" id="globalSearch" placeholder="ابحث عن عميل أو مشروع…" data-i18n-placeholder="admin.search" />
+      </div>
+
+      <div class="top-actions">
+        <button class="lang-btn" id="langToggle" type="button" aria-label="Français" data-i18n-aria="lang.aria">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" />
+          </svg>
+          <span id="langLabel">Français</span>
+        </button>
+        <button type="button" class="btn btn-outline btn-sm" id="logoutBtn" data-i18n="admin.logout">خروج</button>
+      </div>
+    </header>
+
+    <main id="adminMain">
+      <!-- OVERVIEW -->
+      <section class="view" id="view-overview">
+        <div class="view-head">
+          <span class="pill gold demo-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.6 7 18.5l1.2-5.6L4 9l5.6-.6z" /></svg>
+            <span data-i18n="admin.demoTag">بيانات تجريبية</span>
+          </span>
+          <h1 data-i18n="admin.greeting">مرحباً بك مجدداً، عبد الرحمن</h1>
+          <p data-i18n="admin.welcome">هذه نظرة سريعة على أداء الموقع خلال الأيام السبعة الماضية.</p>
+        </div>
+
+        <div class="kpis">
+          <article class="kpi">
+            <div class="kpi-top">
+              <span class="kpi-label" data-i18n="admin.kpi.visitors">الزوار</span>
+              <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg></span>
+            </div>
+            <strong id="kpiVisitors">12,480</strong>
+            <span class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16l5-5 4 3 6-7" /></svg><span data-i18n="admin.kpi.h1">+12.4% هذا الأسبوع</span></span>
+          </article>
+
+          <article class="kpi">
+            <div class="kpi-top">
+              <span class="kpi-label" data-i18n="admin.kpi.inquiries">الاستفسارات</span>
+              <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 9 9 0 0 1-3.8-.9L3 21l1.9-5.6a9 9 0 0 1-.9-3.9A8.5 8.5 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z" /></svg></span>
+            </div>
+            <strong id="kpiInquiries">87</strong>
+            <span class="kpi-trend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16l5-5 4 3 6-7" /></svg><span data-i18n="admin.kpi.h2">+8 استفسارات جديدة</span></span>
+          </article>
+
+          <article class="kpi">
+            <div class="kpi-top">
+              <span class="kpi-label" data-i18n="admin.kpi.projects">المشاريع</span>
+              <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2.5h6.5A2.5 2.5 0 0 1 21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span>
+            </div>
+            <strong id="kpiProjects">24</strong>
+            <span class="kpi-trend"><span data-i18n="admin.kpi.h3">مشروعان قيد التنفيذ</span></span>
+          </article>
+
+          <article class="kpi">
+            <div class="kpi-top">
+              <span class="kpi-label" data-i18n="admin.kpi.team">أعضاء الفريق</span>
+              <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2" /><path d="M3 20a6 6 0 0 1 12 0M16.5 5.5a3 3 0 0 1 0 5.6M18 20a5.5 5.5 0 0 0-2.2-4.4" /></svg></span>
+            </div>
+            <strong id="kpiTeam">4</strong>
+            <span class="kpi-trend"><span data-i18n="admin.kpi.h4">عضو جديد هذا الشهر</span></span>
+          </article>
+        </div>
+
+        <div class="overview-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2 data-i18n="admin.chart.title">الزيارات والاستفسارات</h2>
+                <p data-i18n="admin.chart.sub">آخر ٧ أيام</p>
+              </div>
+              <div class="legend">
+                <span><i class="v"></i><span data-i18n="admin.chart.visits">الزيارات</span></span>
+                <span><i class="q"></i><span data-i18n="admin.chart.inquiries">الاستفسارات</span></span>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="chart-bars" id="chartBars"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div><h2 data-i18n="admin.msg.title">رسائل العملاء</h2></div>
+              <button type="button" class="btn btn-outline btn-sm" data-goto="messages" data-i18n="admin.side.messages">رسائل العملاء</button>
+            </div>
+            <div class="panel-body">
+              <div class="mini-list" id="recentMessages"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MESSAGES -->
+      <section class="view" id="view-messages" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2 data-i18n="admin.msg.title">رسائل العملاء</h2>
+              <p data-i18n="admin.msg.sub">كل الاستفسارات الواردة عبر استمارة الموقع.</p>
+            </div>
+            <span class="pill"><span data-i18n="admin.msg.new">جديدة</span>: <span id="msgNewCount">0</span></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="admin.msg.col.name">العميل</th>
+                  <th data-i18n="admin.msg.col.subject">الموضوع</th>
+                  <th data-i18n="admin.msg.col.date">التاريخ</th>
+                  <th data-i18n="admin.msg.col.status">الحالة</th>
+                  <th data-i18n="admin.msg.col.actions">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="msgBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="view" id="view-team" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2 data-i18n="admin.team.title">أعضاء الفريق</h2>
+              <p data-i18n="admin.team.sub">إدارة الأدوار والصلاحيات داخل الشركة.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="addMemberBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+              <span data-i18n="admin.team.add">إضافة عضو</span>
+            </button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="admin.team.col.name">العضو</th>
+                  <th data-i18n="admin.team.col.role">الدور</th>
+                  <th data-i18n="admin.team.col.email">البريد</th>
+                  <th data-i18n="admin.team.col.status">الحالة</th>
+                  <th data-i18n="admin.team.col.actions">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="teamBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="view" id="view-projects" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2 data-i18n="admin.proj.title">مشاريع قسم الأعمال</h2>
+              <p data-i18n="admin.proj.sub">كل مشروع يُضاف هنا يظهر في قسم «أعمالنا» بالموقع.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="addProjectBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+              <span data-i18n="admin.proj.add">مشروع جديد</span>
+            </button>
+          </div>
+          <div class="proj-grid" id="projGrid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="modalTitle">—</h2>
+      <button type="button" class="icon-btn sm" id="modalClose" aria-label="إغلاق">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+    </div>
+    <form id="modalForm" novalidate>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline btn-sm" id="modalCancel" data-i18n="admin.action.cancel">إلغاء</button>
+        <button type="submit" class="btn btn-primary btn-sm" data-i18n="admin.action.save">حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+</body>
+</html>

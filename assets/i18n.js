@@ -1,0 +1,553 @@
+/* ============================================================
+   Attia Web Solutions — shared bilingual dictionary (AR / FR)
+   Consumed by index.html and admin.html via window.AttiaI18n
+   ============================================================ */
+(function (window, document) {
+  "use strict";
+
+  var I18N = {
+    ar: {
+      dir: "rtl",
+      "lang.label": "Français",
+      "lang.aria": "التبديل إلى الفرنسية",
+      "skip": "تخطَّ إلى المحتوى",
+      "page.title": "Attia Web Solutions — نبتكر حلولاً رقمية تسهّل إدارة أعمالك",
+
+      /* Navigation */
+      "nav.home": "الرئيسية",
+      "nav.services": "خدماتنا",
+      "nav.diwan": "ديوان",
+      "nav.portfolio": "أعمالنا",
+      "nav.contact": "تواصل",
+      "nav.cta": "ابدأ مشروعك",
+      "nav.admin": "بوابة الإدارة",
+      "nav.menu": "القائمة",
+
+      /* Hero */
+      "hero.badge": "شريكك الرقمي في الجزائر",
+      "hero.title1": "نبتكر حلولاً رقمية",
+      "hero.title2": "تسهّل إدارة أعمالك",
+      "hero.desc": "نصمّم ونطوّر مواقع وأنظمة إدارة مخصّصة تجمع بين الأداء العالي والتصميم الاحترافي، لتمنح مؤسستك حضوراً رقمياً يليق بها.",
+      "hero.cta1": "اكتشف خدماتنا",
+      "hero.cta2": "تحدث معنا",
+      "hero.chip1": "تصميم متجاوب",
+      "hero.chip2": "أداء عالٍ",
+      "hero.chip3": "دعم مستمر",
+      "hero.stat1": "مواقع",
+      "hero.stat2": "أنظمة إدارة",
+      "hero.stat3": "تصميم",
+      "hero.float": "متاحون لمشروعك الجديد",
+      "hero.scroll": "مرّر للأسفل",
+
+      /* Services */
+      "services.eyebrow": "خدماتنا",
+      "services.title": "حلول رقمية متكاملة",
+      "services.sub": "من الفكرة إلى الإطلاق والدعم: نغطي كل ما تحتاجه لتنطلق أعمالك رقمياً بثقة.",
+      "s1.title": "تطوير ويب",
+      "s1.desc": "مواقع حديثة وسريعة مبنية بأحدث التقنيات، متوافقة مع جميع الشاشات ومهيّأة لمحركات البحث.",
+      "s2.title": "برمجيات إدارة أعمال",
+      "s2.desc": "أنظمة إدارة مخصّصة لمكاتب المحاماة والمحاسبة والمخزون، ترشّد عملك اليومي وتوفّر وقتك.",
+      "s3.title": "تصميم واجهات",
+      "s3.desc": "واجهات أنيقة وتجربة استخدام مدروسة تعكس هوية مؤسستك وتبني الثقة مع زوّارك.",
+      "s4.title": "حلول مخصّصة",
+      "s4.desc": "أدوات ويب مصمّمة حسب احتياجك: لوحات تحكم، أتمتة، ربط الأنظمة وتقارير ذكية.",
+
+      /* Diwan flagship */
+      "diwan.eyebrow": "منتجنا الرئيسي",
+      "diwan.titleLead": "ديوان",
+      "diwan.titleRest": "— أول نظام جزائري متكامل لإدارة مكاتب المحاماة",
+      "diwan.sub": "منصّة واحدة تجمع الملفات والموكلين والجلسات والآجال والأتعاب، مبنية على قواعد القانون الجزائري وتعمل بكفاءة حتى دون اتصال بالإنترنت.",
+      "diwan.f1Title": "أمان مطلق وتشفير",
+      "diwan.f1Desc": "تشفير كامل لبيانات المكتب والموكلين، ونسخ احتياطي محلي لا يخرج من جهازك.",
+      "diwan.f2Title": "يعمل بدون إنترنت",
+      "diwan.f2Desc": "كل الوظائف متاحة دون اتصال، وتُزامَن البيانات تلقائياً عند عودة الشبكة.",
+      "diwan.f3Title": "إدارة دقيقة للآجال",
+      "diwan.f3Desc": "حاسبة آجال قانونية وتنبيهات مسبقة تمنعك من تفويت أي موعد أو أجل إجراء.",
+      "diwan.f4Title": "بوابة للموكل",
+      "diwan.f4Desc": "مساحة خاصة يتابع فيها الموكل ملفه ووثائقه وجلساته بأمان من هاتفه.",
+      "diwan.cta1": "تجربة التطبيق الآن",
+      "diwan.cta2": "دليل الاستخدام",
+      "diwan.badge1": "تشفير AES-256",
+      "diwan.badge2": "يعمل دون اتصال",
+      "diwan.badge3": "منظومة عربية 100%",
+      "diwan.uiLabel": "لوحة التحكم",
+      "diwan.phoneAlt": "لقطة من تطبيق ديوان على الهاتف — لوحة التحكم",
+      "diwan.note": "نسخة ويب جاهزة للاستخدام — دون أي تنزيل.",
+
+      /* Portfolio */
+      "portfolio.eyebrow": "أعمالنا",
+      "portfolio.title": "مشاريع نفتخر بها",
+      "portfolio.sub": "نماذج حقيقية من حلول طوّرناها لتبسيط العمل اليومي ورفع الإنتاجية.",
+      "portfolio.badge": "تطبيق مميز",
+      "portfolio.appTitle": "ديوان — نظام إدارة مكتب المحاماة",
+      "portfolio.appDesc": "تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة وحماية لبيانات الموكلين.",
+      "portfolio.f1": "إدارة القضايا والموكلين",
+      "portfolio.f2": "الجلسات والمواعيد",
+      "portfolio.f3": "الوثائق والفواتير",
+      "portfolio.cta": "زيارة التطبيق",
+      "portfolio.logoAlt": "شعار تطبيق ديوان",
+      "portfolio.galleryKicker": "لقطات حقيقية",
+      "portfolio.galleryTitle": "نظرة داخل تطبيق ديوان",
+      "portfolio.gallerySub": "ستّ لقطات من الواجهة الحقيقية: لوحة التحكم، الملفات، الجلسات، حاسبة الآجال، الأتعاب، وبوابة الموكل.",
+      "portfolio.galleryHint": "اضغط على أي لقطة لعرضها بالحجم الكامل",
+      "portfolio.shot1": "لوحة التحكم اليومية",
+      "portfolio.shot1Alt": "ديوان — لوحة التحكم مع الآجال والجلسات والمهام",
+      "portfolio.shot1Open": "تكبير لقطة لوحة التحكم",
+      "portfolio.shot2": "الملفات والقضايا",
+      "portfolio.shot2Alt": "ديوان — قائمة الملفات والقضايا مع المراحل والمحاكم",
+      "portfolio.shot2Open": "تكبير لقطة الملفات والقضايا",
+      "portfolio.shot3": "الجلسات والآجال",
+      "portfolio.shot3Alt": "ديوان — رزنامة الجلسات والمواعيد القادمة",
+      "portfolio.shot3Open": "تكبير لقطة الجلسات والآجال",
+      "portfolio.shot4": "حاسبة الآجال القانونية",
+      "portfolio.shot4Alt": "ديوان — حاسبة الآجال القانونية الاسترشادية",
+      "portfolio.shot4Open": "تكبير لقطة حاسبة الآجال",
+      "portfolio.shot5": "الأتعاب والحسابات",
+      "portfolio.shot5Alt": "ديوان — متابعة الأتعاب والتحصيل لكل موكل",
+      "portfolio.shot5Open": "تكبير لقطة الأتعاب والحسابات",
+      "portfolio.shot6": "بوابة الموكل",
+      "portfolio.shot6Alt": "ديوان — بوابة الموكل على الهاتف مع مشاركة الملف",
+      "portfolio.shot6Open": "تكبير لقطة بوابة الموكل",
+      "portfolio.lbTitle": "عرض لقطة الشاشة",
+      "portfolio.lbClose": "إغلاق العرض",
+      "portfolio.lbPrev": "اللقطة السابقة",
+      "portfolio.lbNext": "اللقطة التالية",
+
+      /* Contact */
+      "contact.eyebrow": "تواصل معنا",
+      "contact.title": "لنبنِ مشروعك القادم معاً",
+      "contact.sub": "أخبرنا بفكرتك أو حاجتك، وسنعود إليك بتصوّر واضح خلال 24 ساعة.",
+      "contact.phoneLabel": "الهاتف",
+      "contact.emailLabel": "البريد الإلكتروني",
+      "contact.hoursLabel": "وقت الرد",
+      "contact.hours": "خلال 24 ساعة",
+
+      /* Form */
+      "form.name": "الاسم الكامل",
+      "form.namePh": "مثال: محمد عطية",
+      "form.email": "البريد الإلكتروني",
+      "form.emailPh": "you@example.com",
+      "form.message": "رسالتك",
+      "form.messagePh": "أخبرنا عن مشروعك...",
+      "form.submit": "إرسال الرسالة",
+      "form.sending": "جارٍ الإرسال...",
+      "form.note": "بياناتك تُستخدم للتواصل معك فقط.",
+      "form.success": "شكراً لك! تم إرسال رسالتك بنجاح، سنعاود التواصل معك قريباً.",
+      "form.error": "تعذّر إرسال الرسالة. يرجى المحاولة مجدداً أو الاتصال بنا هاتفياً.",
+      "form.invalid": "يرجى تعبئة جميع الحقول بريد إلكتروني صحيح.",
+      "form.unconfigured": "النموذج جاهز: أضف رابط Formspree الخاص بك في الثابت FORMSPREE_ENDPOINT داخل assets/site.js لتفعيل الإرسال.",
+
+      /* Footer */
+      "footer.tagline": "نبتكر حلولاً رقمية تسهّل إدارة أعمالك — من التصميم إلى التطوير والدعم.",
+      "footer.links": "روابط سريعة",
+      "footer.contactTitle": "معلومات التواصل",
+      "footer.diwan": "تطبيق ديوان",
+      "footer.guide": "دليل استخدام ديوان",
+      "footer.admin": "بوابة الإدارة",
+      "footer.rights": "© 2026 Attia Web Solutions. جميع الحقوق محفوظة.",
+
+      /* ---------- Admin portal ---------- */
+      "admin.pageTitle": "بوابة الإدارة — Attia Web Solutions",
+      "admin.login.kicker": "بوابة الإدارة",
+      "admin.login.title": "تسجيل الدخول",
+      "admin.login.sub": "مساحة خاصة بفريق Attia Web Solutions لمتابعة العملاء والمشاريع.",
+      "admin.login.email": "البريد الإلكتروني",
+      "admin.login.emailPh": "you@attia.dz",
+      "admin.login.password": "كلمة المرور",
+      "admin.login.passwordPh": "••••••••",
+      "admin.login.submit": "دخول إلى اللوحة",
+      "admin.login.demo": "دخول تجريبي",
+      "admin.login.demoHint": "واجهة محاكاة: أي بريد صحيح وكلمة مرور من ٦ أحرف تفتح اللوحة — لا تحقّق حقيقي بعد.",
+      "admin.login.error": "يرجى إدخال بريد إلكتروني صحيح وكلمة مرور من ٦ أحرف على الأقل.",
+      "admin.login.back": "العودة إلى الموقع",
+      "admin.demoTag": "بيانات تجريبية",
+
+      "admin.side.overview": "نظرة عامة",
+      "admin.side.messages": "رسائل العملاء",
+      "admin.side.team": "أعضاء الفريق",
+      "admin.side.projects": "المشاريع",
+      "admin.search": "ابحث عن عميل أو مشروع…",
+      "admin.logout": "خروج",
+      "admin.site": "عرض الموقع",
+      "admin.greeting": "مرحباً بك مجدداً، عبد الرحمن",
+      "admin.welcome": "هذه نظرة سريعة على أداء الموقع خلال الأيام السبعة الماضية.",
+
+      "admin.kpi.visitors": "الزوار",
+      "admin.kpi.inquiries": "الاستفسارات",
+      "admin.kpi.projects": "المشاريع",
+      "admin.kpi.team": "أعضاء الفريق",
+      "admin.kpi.h1": "+12.4% هذا الأسبوع",
+      "admin.kpi.h2": "+8 استفسارات جديدة",
+      "admin.kpi.h3": "مشروعان قيد التنفيذ",
+      "admin.kpi.h4": "عضو جديد هذا الشهر",
+
+      "admin.chart.title": "الزيارات والاستفسارات",
+      "admin.chart.sub": "آخر ٧ أيام",
+      "admin.chart.visits": "الزيارات",
+      "admin.chart.inquiries": "الاستفسارات",
+      "admin.day1": "السبت",
+      "admin.day2": "الأحد",
+      "admin.day3": "الاثنين",
+      "admin.day4": "الثلاثاء",
+      "admin.day5": "الأربعاء",
+      "admin.day6": "الخميس",
+      "admin.day7": "الجمعة",
+
+      "admin.msg.title": "رسائل العملاء",
+      "admin.msg.sub": "كل الاستفسارات الواردة عبر استمارة الموقع.",
+      "admin.msg.col.name": "العميل",
+      "admin.msg.col.email": "البريد",
+      "admin.msg.col.subject": "الموضوع",
+      "admin.msg.col.date": "التاريخ",
+      "admin.msg.col.status": "الحالة",
+      "admin.msg.col.actions": "إجراءات",
+      "admin.msg.new": "جديدة",
+      "admin.msg.read": "مقروءة",
+      "admin.msg.replied": "تم الرد",
+      "admin.msg.markRead": "تعليم كمقروءة",
+      "admin.msg.delete": "حذف",
+      "admin.msg.empty": "لا توجد رسائل لعرضها.",
+
+      "admin.team.title": "أعضاء الفريق",
+      "admin.team.sub": "إدارة الأدوار والصلاحيات داخل الشركة.",
+      "admin.team.add": "إضافة عضو",
+      "admin.team.col.name": "العضو",
+      "admin.team.col.role": "الدور",
+      "admin.team.col.email": "البريد",
+      "admin.team.col.status": "الحالة",
+      "admin.team.col.actions": "إجراءات",
+      "admin.team.active": "نشط",
+      "admin.team.away": "غير متاح",
+      "admin.team.edit": "تعديل",
+      "admin.team.delete": "حذف",
+      "admin.role.manager": "المدير",
+      "admin.role.dev": "المطوّر",
+      "admin.role.marketing": "المسوّق",
+      "admin.role.design": "المصمم",
+
+      "admin.proj.title": "مشاريع قسم الأعمال",
+      "admin.proj.sub": "كل مشروع يُضاف هنا يظهر في قسم «أعمالنا» بالموقع.",
+      "admin.proj.add": "مشروع جديد",
+      "admin.proj.tag": "مُضاف حديثاً",
+
+      "admin.modal.teamAdd": "إضافة عضو إلى الفريق",
+      "admin.modal.teamEdit": "تعديل بيانات العضو",
+      "admin.modal.projectAdd": "إضافة مشروع جديد",
+      "admin.field.name": "الاسم الكامل",
+      "admin.field.email": "البريد الإلكتروني",
+      "admin.field.role": "الدور",
+      "admin.field.title": "عنوان المشروع",
+      "admin.field.category": "التصنيف",
+      "admin.field.desc": "وصف مختصر",
+      "admin.action.save": "حفظ",
+      "admin.action.cancel": "إلغاء",
+      "admin.toast.login": "تم الدخول — وضع المحاكاة",
+      "admin.toast.member": "تمت إضافة العضو",
+      "admin.toast.updated": "تم تحديث البيانات",
+      "admin.toast.deleted": "تم الحذف",
+      "admin.toast.project": "تمت إضافة المشروع إلى قسم الأعمال",
+      "admin.toast.read": "تم تعليم الرسالة كمقروءة",
+      "admin.toast.logout": "تم تسجيل الخروج",
+      "admin.confirm.delete": "هل تريد الحذف نهائياً؟"
+    },
+
+    fr: {
+      dir: "ltr",
+      "lang.label": "العربية",
+      "lang.aria": "Passer à l'arabe",
+      "skip": "Aller au contenu",
+      "page.title": "Attia Web Solutions — Des solutions numériques sur mesure",
+
+      "nav.home": "Accueil",
+      "nav.services": "Services",
+      "nav.diwan": "Diwan",
+      "nav.portfolio": "Réalisations",
+      "nav.contact": "Contact",
+      "nav.cta": "Démarrer un projet",
+      "nav.admin": "Portail admin",
+      "nav.menu": "Menu",
+
+      "hero.badge": "Votre partenaire numérique en Algérie",
+      "hero.title1": "Des solutions numériques",
+      "hero.title2": "qui simplifient votre gestion",
+      "hero.desc": "Nous concevons des sites web et des logiciels de gestion sur mesure, alliant performance, design haut de gamme et simplicité d'usage.",
+      "hero.cta1": "Découvrir nos services",
+      "hero.cta2": "Parlons de votre projet",
+      "hero.chip1": "Design responsive",
+      "hero.chip2": "Haute performance",
+      "hero.chip3": "Support continu",
+      "hero.stat1": "Sites web",
+      "hero.stat2": "Logiciels",
+      "hero.stat3": "UI/UX",
+      "hero.float": "Disponibles pour votre projet",
+      "hero.scroll": "Défiler",
+
+      "services.eyebrow": "Nos services",
+      "services.title": "Des solutions complètes",
+      "services.sub": "De l'idée au lancement et au support : tout ce qu'il faut pour digitaliser votre activité sereinement.",
+      "s1.title": "Développement web",
+      "s1.desc": "Des sites modernes et rapides, adaptés à tous les écrans et optimisés pour les moteurs de recherche.",
+      "s2.title": "Logiciels de gestion",
+      "s2.desc": "Des applications métier sur mesure (cabinets d'avocats, comptabilité, stock) qui automatisent votre quotidien.",
+      "s3.title": "Design d'interfaces",
+      "s3.desc": "Des interfaces élégantes et une expérience utilisateur réfléchie, à l'image de votre identité.",
+      "s4.title": "Solutions sur mesure",
+      "s4.desc": "Des outils web adaptés à vos besoins : tableaux de bord, automatisation, intégrations et rapports intelligents.",
+
+      "diwan.eyebrow": "Notre produit phare",
+      "diwan.titleLead": "Diwan",
+      "diwan.titleRest": "— le premier système algérien complet de gestion de cabinets d'avocats",
+      "diwan.sub": "Une plateforme unique qui réunit dossiers, clients, audiences, délais et honoraires, pensée selon le droit algérien et pleinement fonctionnelle hors connexion.",
+      "diwan.f1Title": "Sécurité et chiffrement",
+      "diwan.f1Desc": "Chiffrement complet des données du cabinet et des clients, avec une sauvegarde locale qui ne quitte jamais votre appareil.",
+      "diwan.f2Title": "Fonctionne hors ligne",
+      "diwan.f2Desc": "Toutes les fonctions restent disponibles sans réseau, et les données se synchronisent dès le retour de la connexion.",
+      "diwan.f3Title": "Gestion précise des délais",
+      "diwan.f3Desc": "Calculateur de délais légaux et alertes anticipées pour ne manquer aucune échéance procédurale.",
+      "diwan.f4Title": "Portail client",
+      "diwan.f4Desc": "Un espace dédié où le client suit son dossier, ses documents et ses audiences depuis son téléphone.",
+      "diwan.cta1": "Essayer l'application",
+      "diwan.cta2": "Guide d'utilisation",
+      "diwan.badge1": "Chiffrement AES-256",
+      "diwan.badge2": "Mode hors ligne",
+      "diwan.badge3": "100 % en arabe",
+      "diwan.uiLabel": "Tableau de bord",
+      "diwan.phoneAlt": "Aperçu de l'application Diwan sur mobile — tableau de bord",
+      "diwan.note": "Version web prête à l'emploi — aucun téléchargement.",
+
+      "portfolio.eyebrow": "Réalisations",
+      "portfolio.title": "Des projets dont nous sommes fiers",
+      "portfolio.sub": "Des solutions concrètes, pensées pour simplifier le travail quotidien et gagner en productivité.",
+      "portfolio.badge": "Projet phare",
+      "portfolio.appTitle": "Diwan — Gestion de cabinet d'avocats",
+      "portfolio.appDesc": "Une application web complète pour la gestion d'un cabinet d'avocats en Algérie : dossiers, clients, audiences et documents réunis au même endroit, avec une interface arabe soignée.",
+      "portfolio.f1": "Dossiers et clients",
+      "portfolio.f2": "Audiences et échéances",
+      "portfolio.f3": "Documents et facturation",
+      "portfolio.cta": "Visiter l'application",
+      "portfolio.logoAlt": "Logo de l'application Diwan",
+      "portfolio.galleryKicker": "Captures réelles",
+      "portfolio.galleryTitle": "À l'intérieur de Diwan",
+      "portfolio.gallerySub": "Six captures de l'interface réelle : tableau de bord, dossiers, audiences, calculateur de délais, honoraires et portail client.",
+      "portfolio.galleryHint": "Cliquez sur une capture pour l'agrandir",
+      "portfolio.shot1": "Tableau de bord quotidien",
+      "portfolio.shot1Alt": "Diwan — tableau de bord avec délais, audiences et tâches",
+      "portfolio.shot1Open": "Agrandir la capture du tableau de bord",
+      "portfolio.shot2": "Dossiers & affaires",
+      "portfolio.shot2Alt": "Diwan — liste des dossiers avec phases et juridictions",
+      "portfolio.shot2Open": "Agrandir la capture des dossiers",
+      "portfolio.shot3": "Audiences & délais",
+      "portfolio.shot3Alt": "Diwan — calendrier des audiences et prochaines échéances",
+      "portfolio.shot3Open": "Agrandir la capture des audiences",
+      "portfolio.shot4": "Calculateur de délais légaux",
+      "portfolio.shot4Alt": "Diwan — calculateur indicatif des délais légaux",
+      "portfolio.shot4Open": "Agrandir la capture du calculateur",
+      "portfolio.shot5": "Honoraires & comptabilité",
+      "portfolio.shot5Alt": "Diwan — suivi des honoraires et des encaissements par client",
+      "portfolio.shot5Open": "Agrandir la capture des honoraires",
+      "portfolio.shot6": "Portail client",
+      "portfolio.shot6Alt": "Diwan — portail client sur mobile avec partage du dossier",
+      "portfolio.shot6Open": "Agrandir la capture du portail client",
+      "portfolio.lbTitle": "Aperçu de la capture",
+      "portfolio.lbClose": "Fermer l'aperçu",
+      "portfolio.lbPrev": "Capture précédente",
+      "portfolio.lbNext": "Capture suivante",
+
+      "contact.eyebrow": "Contact",
+      "contact.title": "Construisons votre prochain projet",
+      "contact.sub": "Parlez-nous de votre idée ou de votre besoin : nous revenons vers vous avec une proposition claire sous 24 heures.",
+      "contact.phoneLabel": "Téléphone",
+      "contact.emailLabel": "E-mail",
+      "contact.hoursLabel": "Délai de réponse",
+      "contact.hours": "Sous 24 heures",
+
+      "form.name": "Nom complet",
+      "form.namePh": "Ex. : Mohamed Attia",
+      "form.email": "Adresse e-mail",
+      "form.emailPh": "vous@exemple.com",
+      "form.message": "Votre message",
+      "form.messagePh": "Parlez-nous de votre projet...",
+      "form.submit": "Envoyer le message",
+      "form.sending": "Envoi en cours...",
+      "form.note": "Vos données servent uniquement à vous répondre.",
+      "form.success": "Merci ! Votre message a bien été envoyé, nous vous répondrons rapidement.",
+      "form.error": "L'envoi a échoué. Merci de réessayer ou de nous appeler.",
+      "form.invalid": "Merci de remplir tous les champs avec un e-mail valide.",
+      "form.unconfigured": "Formulaire prêt : renseignez votre lien Formspree dans la constante FORMSPREE_ENDPOINT de assets/site.js pour activer l'envoi.",
+
+      "footer.tagline": "Des solutions numériques qui simplifient votre gestion — du design au développement et au support.",
+      "footer.links": "Liens rapides",
+      "footer.contactTitle": "Coordonnées",
+      "footer.diwan": "Application Diwan",
+      "footer.guide": "Guide Diwan",
+      "footer.admin": "Portail admin",
+      "footer.rights": "© 2026 Attia Web Solutions. Tous droits réservés.",
+
+      "admin.pageTitle": "Portail admin — Attia Web Solutions",
+      "admin.login.kicker": "Portail administration",
+      "admin.login.title": "Connexion",
+      "admin.login.sub": "Espace privé de l'équipe Attia Web Solutions pour suivre clients et projets.",
+      "admin.login.email": "Adresse e-mail",
+      "admin.login.emailPh": "vous@attia.dz",
+      "admin.login.password": "Mot de passe",
+      "admin.login.passwordPh": "••••••••",
+      "admin.login.submit": "Accéder au tableau de bord",
+      "admin.login.demo": "Accès démo",
+      "admin.login.demoHint": "Interface de démonstration : une adresse valide et un mot de passe de 6 caractères minimum ouvrent le tableau de bord.",
+      "admin.login.error": "Saisissez une adresse e-mail valide et un mot de passe d'au moins 6 caractères.",
+      "admin.login.back": "Retour au site",
+      "admin.demoTag": "Données de démonstration",
+
+      "admin.side.overview": "Vue d'ensemble",
+      "admin.side.messages": "Messages clients",
+      "admin.side.team": "Équipe",
+      "admin.side.projects": "Projets",
+      "admin.search": "Rechercher un client ou un projet…",
+      "admin.logout": "Quitter",
+      "admin.site": "Voir le site",
+      "admin.greeting": "Bon retour, Abderrahmane",
+      "admin.welcome": "Voici un aperçu de l'activité du site sur les sept derniers jours.",
+
+      "admin.kpi.visitors": "Visiteurs",
+      "admin.kpi.inquiries": "Demandes",
+      "admin.kpi.projects": "Projets",
+      "admin.kpi.team": "Équipe",
+      "admin.kpi.h1": "+12,4 % cette semaine",
+      "admin.kpi.h2": "+8 nouvelles demandes",
+      "admin.kpi.h3": "2 projets en cours",
+      "admin.kpi.h4": "1 recrue ce mois",
+
+      "admin.chart.title": "Visites et demandes",
+      "admin.chart.sub": "7 derniers jours",
+      "admin.chart.visits": "Visites",
+      "admin.chart.inquiries": "Demandes",
+      "admin.day1": "Sam",
+      "admin.day2": "Dim",
+      "admin.day3": "Lun",
+      "admin.day4": "Mar",
+      "admin.day5": "Mer",
+      "admin.day6": "Jeu",
+      "admin.day7": "Ven",
+
+      "admin.msg.title": "Messages clients",
+      "admin.msg.sub": "Toutes les demandes reçues via le formulaire du site.",
+      "admin.msg.col.name": "Client",
+      "admin.msg.col.email": "E-mail",
+      "admin.msg.col.subject": "Objet",
+      "admin.msg.col.date": "Date",
+      "admin.msg.col.status": "Statut",
+      "admin.msg.col.actions": "Actions",
+      "admin.msg.new": "Nouveau",
+      "admin.msg.read": "Lu",
+      "admin.msg.replied": "Répondu",
+      "admin.msg.markRead": "Marquer comme lu",
+      "admin.msg.delete": "Supprimer",
+      "admin.msg.empty": "Aucun message à afficher.",
+
+      "admin.team.title": "Membres de l'équipe",
+      "admin.team.sub": "Gérez les rôles et les accès au sein de la société.",
+      "admin.team.add": "Ajouter un membre",
+      "admin.team.col.name": "Membre",
+      "admin.team.col.role": "Rôle",
+      "admin.team.col.email": "E-mail",
+      "admin.team.col.status": "Statut",
+      "admin.team.col.actions": "Actions",
+      "admin.team.active": "Actif",
+      "admin.team.away": "Indisponible",
+      "admin.team.edit": "Modifier",
+      "admin.team.delete": "Supprimer",
+      "admin.role.manager": "Direction",
+      "admin.role.dev": "Développeur",
+      "admin.role.marketing": "Marketing",
+      "admin.role.design": "Designer",
+
+      "admin.proj.title": "Projets du portfolio",
+      "admin.proj.sub": "Chaque projet ajouté ici apparaît dans la section « Réalisations » du site.",
+      "admin.proj.add": "Nouveau projet",
+      "admin.proj.tag": "Ajouté récemment",
+
+      "admin.modal.teamAdd": "Ajouter un membre",
+      "admin.modal.teamEdit": "Modifier le membre",
+      "admin.modal.projectAdd": "Nouveau projet",
+      "admin.field.name": "Nom complet",
+      "admin.field.email": "Adresse e-mail",
+      "admin.field.role": "Rôle",
+      "admin.field.title": "Titre du projet",
+      "admin.field.category": "Catégorie",
+      "admin.field.desc": "Description courte",
+      "admin.action.save": "Enregistrer",
+      "admin.action.cancel": "Annuler",
+      "admin.toast.login": "Connecté — mode démonstration",
+      "admin.toast.member": "Membre ajouté",
+      "admin.toast.updated": "Données mises à jour",
+      "admin.toast.deleted": "Élément supprimé",
+      "admin.toast.project": "Projet ajouté à la section Réalisations",
+      "admin.toast.read": "Message marqué comme lu",
+      "admin.toast.logout": "Déconnecté",
+      "admin.confirm.delete": "Supprimer définitivement ?"
+    }
+  };
+
+  var STORAGE_KEY = "attia-lang";
+  var current = "ar";
+
+  function dict(lang) {
+    return I18N[lang] || I18N.ar;
+  }
+
+  function apply(lang) {
+    var next = I18N[lang] ? lang : "ar";
+    var d = dict(next);
+    current = next;
+
+    var html = document.documentElement;
+    html.setAttribute("lang", next);
+    html.setAttribute("dir", d.dir);
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var value = d[el.getAttribute("data-i18n")];
+      if (value != null) el.textContent = value;
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+      var value = d[el.getAttribute("data-i18n-placeholder")];
+      if (value != null) el.setAttribute("placeholder", value);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var value = d[el.getAttribute("data-i18n-aria")];
+      if (value != null) el.setAttribute("aria-label", value);
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      var value = d[el.getAttribute("data-i18n-alt")];
+      if (value != null) el.setAttribute("alt", value);
+    });
+
+    var label = document.getElementById("langLabel");
+    if (label) label.textContent = d["lang.label"];
+
+    try { window.localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+
+    document.dispatchEvent(new CustomEvent("attia:lang", { detail: { lang: next, dict: d } }));
+    return next;
+  }
+
+  function init() {
+    var saved = null;
+    try { saved = window.localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    apply(saved === "fr" ? "fr" : "ar");
+  }
+
+  window.AttiaI18n = {
+    init: init,
+    apply: apply,
+    toggle: function () { return apply(current === "ar" ? "fr" : "ar"); },
+    lang: function () { return current; },
+    dict: function () { return dict(current); },
+    t: function (key) {
+      var value = dict(current)[key];
+      return value == null ? key : value;
+    }
+  };
+})(window, document);
