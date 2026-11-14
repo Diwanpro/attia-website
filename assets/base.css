@@ -160,11 +160,17 @@ html[lang="fr"] .eyebrow{letter-spacing:.18em;}
 .pill.gold{background:rgba(216,181,106,.14);border-color:rgba(216,181,106,.38);color:var(--gold-light);}
 
 /* ---------- Form fields ---------- */
+input:not([type="radio"]):not([type="checkbox"]):not([type="hidden"]), select, textarea{
+  color:var(--text);background-color:var(--navy-deep);border:1px solid var(--line);
+  color-scheme:dark;transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+select option,select optgroup{background-color:#0b1a30;color:#e9f1f6;}
+input[type="radio"],input[type="checkbox"]{accent-color:var(--teal-light);}
 .field{margin-bottom:18px;}
 .field label{display:block;font-size:.84rem;font-weight:700;margin-bottom:8px;color:var(--text-soft);}
 .field input,.field select,.field textarea{
   width:100%;padding:14px 16px;border-radius:12px;
-  border:1px solid var(--line);background:rgba(255,255,255,.04);
+  border:1px solid var(--line);background-color:var(--navy-deep);
   font:inherit;font-size:.94rem;color:var(--text);
   transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease;
 }
@@ -173,7 +179,7 @@ html[lang="fr"] .eyebrow{letter-spacing:.18em;}
   background-position:calc(100% - 20px) 22px,calc(100% - 14px) 22px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;}
 html[dir="rtl"] .field select{background-position:20px 22px,14px 22px;}
 .field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;border-color:rgba(30,202,182,.65);background:rgba(255,255,255,.07);
+  outline:none;border-color:rgba(30,202,182,.65);background-color:var(--navy-soft);
   box-shadow:0 0 0 4px rgba(30,202,182,.14);
 }
 .field input::placeholder,.field textarea::placeholder{color:rgba(197,214,224,.42);}

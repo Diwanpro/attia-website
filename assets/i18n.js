@@ -152,6 +152,10 @@
 
       /* Diwan flagship */
       "diwan.eyebrow": "منتجنا الرئيسي",
+      "diwan.cardTitle": "ديوان — نظام إدارة مكاتب المحاماة الأول",
+      "diwan.cardDesc": "ملفاتك وجلساتك وحسابات مكتبك في نظام واحد، يعمل حتى دون اتصال.",
+      "diwan.logoAlt": "شعار ديوان",
+      "diwan.accounting": "المحاسبة",
       "diwan.titleLead": "ديوان",
       "diwan.titleRest": "— أول نظام جزائري متكامل لإدارة مكاتب المحاماة",
       "diwan.sub": "منصّة واحدة تجمع الملفات والموكلين والجلسات والآجال والأتعاب، مبنية على قواعد القانون الجزائري وتعمل بكفاءة حتى دون اتصال بالإنترنت.",
@@ -408,6 +412,10 @@
       "s4.desc": "Des outils web adaptés à vos besoins : tableaux de bord, automatisation, intégrations et rapports intelligents.",
 
       "diwan.eyebrow": "Notre produit phare",
+      "diwan.cardTitle": "Diwan — la gestion du cabinet d’avocats en une solution",
+      "diwan.cardDesc": "Dossiers, audiences et comptes de votre cabinet, réunis dans une solution utilisable hors ligne.",
+      "diwan.logoAlt": "Logo Diwan",
+      "diwan.accounting": "Comptabilité",
       "diwan.titleLead": "Diwan",
       "diwan.titleRest": "— le premier système algérien complet de gestion de cabinets d'avocats",
       "diwan.sub": "Une plateforme unique qui réunit dossiers, clients, audiences, délais et honoraires, pensée selon le droit algérien et pleinement fonctionnelle hors connexion.",

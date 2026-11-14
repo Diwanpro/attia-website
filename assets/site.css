@@ -300,6 +300,11 @@ html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
 .dfeature h4{font-size:.92rem;font-weight:800;color:#fff;margin-bottom:3px;line-height:1.5;}
 .dfeature p{font-size:.78rem;color:var(--muted);line-height:1.7;}
 
+.diwan-preview-logo{width:180px;max-width:100%;flex:none;display:grid;place-items:center;}
+.diwan-preview-logo img{width:100%;height:auto;object-fit:contain;}
+.diwan-preview-copy{min-width:0;max-width:900px;}
+.diwan-tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px;}
+.diwan-tags li{padding:5px 12px;border:1px solid rgba(216,181,106,.35);border-radius:999px;background:rgba(216,181,106,.08);color:var(--gold-light);font-size:.78rem;font-weight:700;}
 .diwan-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
 .diwan-note{display:flex;align-items:center;gap:7px;font-size:.76rem;color:#93aab8;margin-top:16px;}
 .diwan-note svg{width:14px;height:14px;color:var(--teal-light);flex:none;}
@@ -630,6 +635,8 @@ html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
   .phone-chip.c2{inset-inline-end:0;}
   .phone-chip.c3{inset-inline-start:2%;}
   .footer-grid{grid-template-columns:1fr;}
+  .diwan-preview-logo{width:120px;}
+  .diwan-preview .diwan-cta .btn{width:100%;}
   .footer-brand{grid-column:auto;}
   .footer-bottom{justify-content:flex-start;}
   .form-card{padding:22px 18px;}
