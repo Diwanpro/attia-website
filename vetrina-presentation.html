@@ -175,6 +175,16 @@
   .sub-ex{margin-top:.4rem;padding:.75rem .9rem;border-radius:.8rem;background:rgba(212,175,55,.1);border:1px dashed rgba(212,175,55,.5);font-size:1rem;line-height:1.9}
   .sub-note{margin:.8rem 0 0;font-size:.95rem;color:var(--muted);line-height:1.75}
   @page{size:430px 940px;margin:0}
+  /* The presentation is mobile-first; use the available desktop canvas. */
+  @media screen and (min-width: 900px){
+    section{padding:5rem 2rem}
+    .wrap{max-width:1200px}
+    .cover .wrap,.end .wrap,#price .wrap{max-width:850px}
+    #store .stack,#all .stack,#roi .stack,#terms .stack,.checks{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+    .loss{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .fig .shot{max-height:720px;width:100%;object-fit:contain}
+    .btns{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
   @media print{
     :root{padding:0}
     html,body{background:#121212!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}

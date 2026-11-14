@@ -12,6 +12,7 @@
 .vt-hero h1{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.28;color:#fff;max-width:760px;}
 .vt-hero h1 span{color:var(--teal-light);}
 .vt-hero p{color:var(--text-soft);font-size:clamp(1rem,1.4vw,1.15rem);max-width:620px;margin:22px 0 30px;}
+.vt-presentation-btn{margin-inline-start:12px;margin-top:12px;}
 .vt-hero-note{display:block;margin-top:20px;color:var(--muted);font-size:.87rem;}
 .vt-visual{min-height:370px;border:1px solid rgba(30,202,182,.24);border-radius:32px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 45%,rgba(30,202,182,.19),transparent 55%),var(--glass);box-shadow:var(--shadow-lg);}
 .vt-visual::before,.vt-visual::after{content:"";position:absolute;inset:12%;border:1px solid rgba(216,181,106,.18);border-radius:50%;}

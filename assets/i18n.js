@@ -17,6 +17,7 @@
       "v.hero.title": "نظام إدارة محلات التجزئة الأكثر تكاملاً في الجزائر",
       "v.hero.desc": "فترينة يجمع المبيعات والمخزون والحسابات والفروع والمتاجر الإلكترونية في واجهة واحدة، لتتابع تجارتك بوضوح وثقة.",
       "v.demo": "احجز عرضاً تجريبياً الآن",
+      "v.presentation": "شاهد العرض التقديمي الكامل",
       "v.hero.note": "مصمّم للتجار في الجزائر",
       "v.problem.kicker": "التحدي",
       "v.problem.title": "عندما تتشتت أدواتك، تتشتت تجارتك",
@@ -211,6 +212,7 @@
       "footer.links": "روابط سريعة",
       "footer.contactTitle": "معلومات التواصل",
       "footer.diwan": "تطبيق ديوان",
+      "footer.vetrina": "تطبيق فترينة",
       "footer.guide": "دليل استخدام ديوان",
       "footer.rights": "© 2026 Attia Web Solutions. جميع الحقوق محفوظة."
     },
@@ -226,6 +228,7 @@
       "v.hero.title": "Le système de gestion des commerces de détail le plus complet en Algérie",
       "v.hero.desc": "Vetrina réunit ventes, stocks, comptes, succursales et boutiques en ligne dans une seule interface pour suivre votre activité en toute clarté.",
       "v.demo": "Réserver une démonstration",
+      "v.presentation": "Voir la présentation complète",
       "v.hero.note": "Conçu pour les commerçants en Algérie",
       "v.problem.kicker": "Le défi",
       "v.problem.title": "Des outils dispersés, une gestion compliquée",
@@ -412,6 +415,7 @@
       "footer.links": "Liens rapides",
       "footer.contactTitle": "Coordonnées",
       "footer.diwan": "Application Diwan",
+      "footer.vetrina": "Application Vetrina",
       "footer.guide": "Guide Diwan",
       "footer.rights": "© 2026 Attia Web Solutions. Tous droits réservés."
     }
