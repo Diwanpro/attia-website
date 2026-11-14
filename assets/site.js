@@ -44,9 +44,10 @@
   /* ============================================================
      3. ACTIVE NAV LINK
      ============================================================ */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
   var sections = navLinks.map(function (link) {
-    return document.querySelector(link.getAttribute("href"));
+    var id = link.getAttribute("href").slice(1);
+    return id ? document.getElementById(id) : null;
   }).filter(Boolean);
 
   if ("IntersectionObserver" in window && sections.length) {
