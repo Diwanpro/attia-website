@@ -14,10 +14,8 @@
 .vt-hero p{color:var(--text-soft);font-size:clamp(1rem,1.4vw,1.15rem);max-width:620px;margin:22px 0 30px;}
 .vt-presentation-btn{margin-inline-start:12px;margin-top:12px;}
 .vt-hero-note{display:block;margin-top:20px;color:var(--muted);font-size:.87rem;}
-.vt-visual{min-height:370px;border:1px solid rgba(30,202,182,.24);border-radius:32px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 45%,rgba(30,202,182,.19),transparent 55%),var(--glass);box-shadow:var(--shadow-lg);}
-.vt-visual::before,.vt-visual::after{content:"";position:absolute;inset:12%;border:1px solid rgba(216,181,106,.18);border-radius:50%;}
-.vt-visual::after{inset:22%;border-color:rgba(30,202,182,.25);}
-.vt-visual .vt-mark{width:min(72%,300px);border-radius:24px;z-index:1;}
+.vt-visual{min-height:370px;display:grid;place-items:center;position:relative;background:transparent;border:0;box-shadow:none;}
+.vt-visual .vt-mark{width:min(85%,380px);padding:0;background:transparent;border:0;box-shadow:none;z-index:1;}
 .vt-visual-label{position:absolute;bottom:30px;color:var(--gold-light);letter-spacing:.2em;font:700 .8rem var(--font-fr);}
 .vt-problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px;}
 .vt-problem-grid span{padding:20px;border:1px solid var(--line);border-radius:16px;color:var(--text-soft);background:rgba(255,255,255,.035);font-weight:700;}
