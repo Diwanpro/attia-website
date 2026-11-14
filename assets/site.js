@@ -15,11 +15,6 @@
      ============================================================ */
   if (window.AttiaI18n) window.AttiaI18n.init();
 
-  var langToggle = document.getElementById("langToggle");
-  if (langToggle && window.AttiaI18n) {
-    langToggle.addEventListener("click", function () { window.AttiaI18n.toggle(); });
-  }
-
   /* ============================================================
      2. HEADER STATE + MOBILE MENU
      ============================================================ */
