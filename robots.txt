@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://diwanpro.github.io/attia-website/sitemap.xml

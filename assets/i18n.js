@@ -317,7 +317,6 @@
     }
   };
 
-  var STORAGE_KEY = "attia-lang";
   var current = "ar";
 
   function dict(lang) {
@@ -356,22 +355,18 @@
     var label = document.getElementById("langLabel");
     if (label) label.textContent = d["lang.label"];
 
-    try { window.localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
-
     document.dispatchEvent(new CustomEvent("attia:lang", { detail: { lang: next, dict: d } }));
     return next;
   }
 
   function init() {
-    var saved = null;
-    try { saved = window.localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    apply(saved === "fr" ? "fr" : "ar");
+    // Each language has a stable URL so crawlers and shared links see the same language.
+    apply(/\/fr\.html$/.test(window.location.pathname) ? "fr" : "ar");
   }
 
   window.AttiaI18n = {
     init: init,
     apply: apply,
-    toggle: function () { return apply(current === "ar" ? "fr" : "ar"); },
     lang: function () { return current; },
     dict: function () { return dict(current); },
     t: function (key) {
