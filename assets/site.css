@@ -597,7 +597,7 @@ html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
   .footer-grid{grid-template-columns:1fr 1fr;}
   .footer-brand{grid-column:1/-1;}
 }
-@media (max-width:940px){
+@media (max-width:1150px){
   .nav-links{display:none;}
   .menu-btn{display:flex;}
   .mobile-menu{display:block;}

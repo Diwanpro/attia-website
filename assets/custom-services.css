@@ -1,0 +1,18 @@
+.custom-hero{padding:clamp(62px,8vw,108px) 0 25px;position:relative;}
+.custom-hero h1{font-size:clamp(2rem,4.5vw,3.7rem);max-width:850px;line-height:1.35;color:#fff;}
+.custom-hero p{max-width:720px;color:var(--text-soft);font-size:1.1rem;margin-top:20px;}
+.custom-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(25px,4vw,54px);align-items:start;}
+.custom-aside{position:sticky;top:110px;color:var(--text-soft);}
+.custom-aside h2{font-size:1.5rem;color:#fff;margin-bottom:12px;}
+.custom-aside p{color:var(--muted);line-height:1.9;}
+.brief-form fieldset{min-width:0;border:0;border-bottom:1px solid var(--line);padding:0 0 24px;margin:0 0 24px;}
+.brief-form legend{font-weight:800;color:var(--gold-light);font-size:1.05rem;margin-bottom:18px;padding:0;}
+.brief-form .field{min-width:0;}
+.brief-form textarea{min-height:125px;resize:vertical;}
+.brief-form .brief-radio{display:flex;flex-wrap:wrap;gap:12px 24px;margin:8px 0 18px;}
+.brief-form .brief-radio label{display:inline-flex;align-items:center;gap:8px;color:var(--text-soft);cursor:pointer;}
+.brief-form .brief-radio input{width:auto;accent-color:var(--teal-light);}
+.brief-form .honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;}
+.brief-form .required-note{color:var(--muted);font-size:.84rem;margin-bottom:24px;}
+.custom-link-row{margin-top:32px;}
+@media(max-width:850px){.custom-layout{grid-template-columns:1fr;}.custom-aside{position:static;}.custom-hero{padding-top:50px;}}
