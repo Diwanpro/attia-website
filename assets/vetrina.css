@@ -12,7 +12,8 @@
 .vt-hero h1{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.28;color:#fff;max-width:760px;}
 .vt-hero h1 span{color:var(--teal-light);}
 .vt-hero p{color:var(--text-soft);font-size:clamp(1rem,1.4vw,1.15rem);max-width:620px;margin:22px 0 30px;}
-.vt-presentation-btn{margin-inline-start:12px;margin-top:12px;}
+.vt-hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+@media(max-width:600px){.vt-hero-actions .btn{width:100%;}}
 .vt-hero-note{display:block;margin-top:20px;color:var(--muted);font-size:.87rem;}
 .vt-visual{min-height:370px;display:grid;place-items:center;position:relative;background:transparent;border:0;box-shadow:none;}
 .vt-visual .vt-mark{width:min(85%,380px);padding:0;background:transparent;border:0;box-shadow:none;z-index:1;}
