@@ -43,7 +43,7 @@
         <span id="langLabel">Français</span>
       </a>
 
-      <a href="./#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">ابدأ مشروعك</a>
+      <a href="#briefForm" class="btn btn-primary nav-cta" data-i18n="nav.cta">ابدأ مشروعك</a>
 
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="القائمة" data-i18n-aria="nav.menu">
         <span></span>
@@ -72,7 +72,7 @@
 <div class="honeypot" aria-hidden="true"><label for="brief-gotcha">Leave this field empty</label><input id="brief-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></div>
 <fieldset><legend data-i18n="custom.personal">01 / البيانات الشخصية</legend>
 <div class="field-row"><div class="field"><label for="brief-name" data-i18n="custom.name">الاسم واللقب *</label><input id="brief-name" name="name" type="text" autocomplete="name" required maxlength="120" /></div><div class="field"><label for="brief-company" data-i18n="custom.company">اسم الشركة (اختياري)</label><input id="brief-company" name="company" type="text" autocomplete="organization" maxlength="120" /></div></div>
-<div class="field-row"><div class="field"><label for="brief-email" data-i18n="custom.email">البريد الإلكتروني *</label><input id="brief-email" name="email" type="email" autocomplete="email" required maxlength="254" /></div><div class="field"><label for="brief-phone" data-i18n="custom.phone">رقم الهاتف *</label><input id="brief-phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" /></div></div>
+<div class="field-row"><div class="field"><label for="brief-email" data-i18n="custom.email">البريد الإلكتروني *</label><input id="brief-email" name="email" type="email" dir="ltr" autocomplete="email" required maxlength="254" /></div><div class="field"><label for="brief-phone" data-i18n="custom.phone">رقم الهاتف *</label><input id="brief-phone" name="phone" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" required maxlength="30" /></div></div>
 <div class="field"><label for="brief-wilaya" data-i18n="custom.wilaya">الولاية</label><select id="brief-wilaya" name="wilaya"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="01 - أدرار / Adrar">01 — أدرار / Adrar</option>
 <option value="02 - الشلف / Chlef">02 — الشلف / Chlef</option>
 <option value="03 - الأغواط / Laghouat">03 — الأغواط / Laghouat</option>
@@ -133,16 +133,19 @@
 <option value="58 - المنيعة / El Meniaa">58 — المنيعة / El Meniaa</option></select></div></fieldset>
 <fieldset><legend data-i18n="custom.type">02 / نوع المشروع</legend>
 <div class="field-row"><div class="field"><label for="brief-industry" data-i18n="custom.industry">مجال العمل</label><select id="brief-industry" name="industry"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Legal" data-i18n="custom.legal">قانوني</option><option value="Commerce" data-i18n="custom.commercial">تجاري</option><option value="Medical" data-i18n="custom.medical">طبي</option><option value="Education" data-i18n="custom.education">تعليمي</option><option value="Restaurants" data-i18n="custom.restaurants">مطاعم</option><option value="Other" data-i18n="custom.other">أخرى</option></select></div>
-<div class="field"><label for="brief-service" data-i18n="custom.service">نوع الخدمة</label><select id="brief-service" name="service"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Web application" data-i18n="custom.webapp">تطبيق ويب</option><option value="Mobile application" data-i18n="custom.mobile">تطبيق هاتف</option><option value="Online store" data-i18n="custom.store">متجر إلكتروني</option><option value="Management system" data-i18n="custom.management">نظام إدارة</option><option value="Other" data-i18n="custom.other">أخرى</option></select></div></div>
+<div class="field"><label for="brief-service" data-i18n="custom.service">نوع الخدمة</label><select id="brief-service" name="service"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Website" data-i18n="custom.website">موقع إلكتروني</option><option value="Web application" data-i18n="custom.webapp">تطبيق ويب</option><option value="Mobile application" data-i18n="custom.mobile">تطبيق هاتف</option><option value="Online store" data-i18n="custom.store">متجر إلكتروني</option><option value="Management system" data-i18n="custom.management">نظام إدارة</option><option value="Other" data-i18n="custom.other">أخرى</option></select></div></div>
 <div><span id="brief-current-label" data-i18n="custom.current">هل لديك نظام حالي؟</span><div class="brief-radio" role="group" aria-labelledby="brief-current-label"><label><input type="radio" name="existing_system" value="Yes" /> <span data-i18n="custom.yes">نعم</span></label><label><input type="radio" name="existing_system" value="No" /> <span data-i18n="custom.no">لا</span></label></div></div></fieldset>
 <fieldset><legend data-i18n="custom.details">03 / تفاصيل المشروع</legend>
 <div class="field"><label for="brief-problem" data-i18n="custom.problem">صف المشكلة</label><textarea id="brief-problem" name="problem" maxlength="5000"></textarea></div>
 <div class="field"><label for="brief-features" data-i18n="custom.features">الميزات المطلوبة</label><textarea id="brief-features" name="features" maxlength="5000"></textarea></div>
 <div class="field"><label for="brief-references" data-i18n="custom.references">روابط أو مراجع (اختياري)</label><textarea id="brief-references" name="references" maxlength="2000" rows="3"></textarea></div></fieldset>
 <fieldset><legend data-i18n="custom.money">04 / الميزانية والوقت</legend><div class="field-row">
-<div class="field"><label for="brief-budget" data-i18n="custom.budget">الميزانية التقريبية</label><select id="brief-budget" name="budget"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Under 50,000 DZD" data-i18n="custom.low">أقل من 50,000 دج</option><option value="50,000 - 100,000 DZD" data-i18n="custom.mid">50,000 إلى 100,000 دج</option><option value="Over 100,000 DZD" data-i18n="custom.high">أكثر من 100,000 دج</option><option value="Consultation" data-i18n="custom.consult">أريد استشارة</option></select></div>
-<div class="field"><label for="brief-start" data-i18n="custom.start">متى تريد البدء؟</label><select id="brief-start" name="start_time"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Immediately" data-i18n="custom.now">فوراً</option><option value="Within one month" data-i18n="custom.month">خلال شهر</option><option value="Within three months" data-i18n="custom.three">خلال 3 أشهر</option></select></div></div></fieldset>
-<button class="btn btn-primary" type="submit" id="briefSubmit"><span data-i18n="custom.submit">إرسال تفاصيل المشروع</span></button><p class="form-status" id="briefStatus" role="status" aria-live="polite"></p>
+<div class="field"><label for="brief-budget" data-i18n="custom.budget">الميزانية التقريبية</label><select id="brief-budget" name="budget"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Not yet defined" data-i18n="custom.undecided">لم أحدد الميزانية بعد</option><option value="Under 50,000 DZD" data-i18n="custom.low">أقل من 50,000 دج</option><option value="50,000 - 100,000 DZD" data-i18n="custom.mid">50,000 إلى 100,000 دج</option><option value="Over 100,000 DZD" data-i18n="custom.high">أكثر من 100,000 دج</option><option value="Consultation" data-i18n="custom.consult">أريد استشارة</option></select></div>
+<div class="field"><label for="brief-start" data-i18n="custom.start">متى تريد البدء؟</label><select id="brief-start" name="start_time"><option value="" data-i18n="custom.choose">اختر من القائمة</option><option value="Immediately" data-i18n="custom.now">فوراً</option><option value="Within one month" data-i18n="custom.month">خلال شهر</option><option value="Within three months" data-i18n="custom.three">خلال 3 أشهر</option></select></div></div><div class="field-row"><div class="field"><label for="brief-funding" data-i18n="custom.funding">الاستعداد المالي</label><select id="brief-funding" name="funding"><option value="">اختر من القائمة</option><option value="Ready" data-i18n="custom.ready">جاهز</option><option value="Discuss" data-i18n="custom.discuss">أحتاج إلى مناقشة</option><option value="Later" data-i18n="custom.later">لاحقاً</option></select></div><div class="field"><label for="brief-decision" data-i18n="custom.decision">الجاهزية لاتخاذ القرار</label><select id="brief-decision" name="decision"><option value="">اختر من القائمة</option><option value="Ready" data-i18n="custom.ready">جاهز</option><option value="Discuss" data-i18n="custom.discuss">أحتاج إلى مناقشة</option><option value="Later" data-i18n="custom.later">لاحقاً</option></select></div></div></fieldset>
+<label class="consent-label"><input type="checkbox" name="consent" value="yes" required> <span data-i18n="custom.consent">أوافق على استخدام بياناتي للتواصل بشأن طلبي. يُستخدم Formspree عند إرسال النموذج، وWhatsApp عند اختياره. يرجى عدم إدخال بيانات حساسة.</span></label>
+<input type="hidden" name="follow_up_category" value="Needs clarification">
+<p class="brief-note" data-i18n="custom.priority.note">تصنيف مبدئي للمساعدة في المتابعة، ولا يُرفض أي طلب تلقائياً.</p>
+<button class="btn btn-primary" type="submit" id="briefSubmit"><span data-i18n="custom.submit">إرسال تفاصيل المشروع</span></button><button class="btn btn-ghost brief-whatsapp" type="button" id="briefWhatsApp" hidden data-i18n="custom.whatsapp">مراجعة الطلب عبر WhatsApp</button><p class="brief-note" data-i18n="custom.whatsapp.note">تفتح رسالة للمراجعة، ولن تُرسل حتى تضغط إرسال في WhatsApp. إذا لم يفتح، يمكنك الاتصال أو استخدام النموذج.</p><p class="form-status" id="briefStatus" role="status" aria-live="polite"></p>
 </form></div></section></main>
 <footer class="site-footer">
   <div class="container">
@@ -152,7 +155,7 @@
         <p data-i18n="footer.tagline">نبتكر حلولاً رقمية تسهّل إدارة أعمالك — من التصميم إلى التطوير والدعم.</p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.links">روابط سريعة</h4>
+        <h2 data-i18n="footer.links">روابط سريعة</h2>
         <ul>
           <li><a href="./#services" data-i18n="nav.services">خدماتنا</a></li>
           <li><a href="./custom-services.html" data-i18n="nav.custom">خدماتنا المخصصة</a></li>
@@ -163,7 +166,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.contactTitle">معلومات التواصل</h4>
+        <h2 data-i18n="footer.contactTitle">معلومات التواصل</h2>
         <ul>
           <li><a href="tel:+213798726063" dir="ltr">0798726063</a></li>
           <li><a href="mailto:attiawebsite@gmail.com" dir="ltr">attiawebsite@gmail.com</a></li>

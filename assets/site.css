@@ -563,7 +563,7 @@ html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
 .footer-brand .footer-logo img{width:220px;max-width:100%;height:auto;object-fit:contain;}
 .footer-brand p{font-size:.88rem;color:#93a8b4;max-width:34ch;line-height:1.85;}
 .footer-col{min-width:0;}
-.footer-col h4{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:800;}
+.footer-col h2{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:800;}
 .footer-col li{margin-bottom:10px;}
 .footer-col a,.footer-col span{font-size:.88rem;color:#9fb3bf;transition:color .2s ease;}
 .footer-col a:hover{color:var(--teal-light);}
@@ -648,3 +648,24 @@ html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
   .admin-btn span{display:none;}
   .admin-btn{padding:10px;border-radius:12px;}
 }
+
+/* Light content section balances the dark product and contact surfaces. */
+.services{background:#f4f8f7;color:#102c3e;}
+.services .section-title{background:none;color:#102c3e;}
+.services .section-sub,.services .card p{color:#405968;}
+.services .eyebrow{color:#08736e;}
+.services .card{background:#fff;border-color:#d7e3e1;box-shadow:0 16px 35px -28px rgba(7,35,45,.55);backdrop-filter:none;}
+.services .card h3{color:#102c3e;}
+.services .card-index{color:#617b83;}
+.services .card-icon,.services .card:nth-child(2) .card-icon,.services .card:nth-child(4) .card-icon{color:#08736e;background:#e3f3ef;border-color:#c3dfd9;}
+.services .card-icon svg{animation:none;}
+.custom-link-row{margin-top:32px;}
+.path-links{display:flex;flex-wrap:wrap;gap:10px;margin:-10px 0 28px;}
+.path-links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1px solid rgba(194,212,221,.32);border-radius:12px;color:#e9f1f6;font-size:.86rem;font-weight:700;}
+.path-links a:hover{border-color:#1ecab6;background:rgba(30,202,182,.1);}
+.hero .orb,.hero-visual::before,.float-badge,.hero-badge .dot,.float-badge .pulse{animation:none;}
+html[dir="rtl"] .btn-arrow{transform:scaleX(-1);}
+@media(max-width:600px){.path-links a{flex:1 1 100%;justify-content:center;}}
+
+.contact-consent{display:flex;align-items:flex-start;gap:10px;color:var(--text-soft);font-size:.85rem;line-height:1.7;margin:0 0 18px;cursor:pointer;}
+.contact-consent input{flex:none;width:18px;height:18px;margin-top:.3em;}
