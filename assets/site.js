@@ -128,7 +128,7 @@
     var img = btn.querySelector("img");
     if (!img) return;
     lbIndex = index;
-    lbTrigger = btn;
+    if (!lb.classList.contains("is-open")) lbTrigger = btn;
     lbImg.src = img.getAttribute("src");
     lbImg.alt = img.getAttribute("alt") || "";
     lbCount.textContent = (index + 1) + " / " + shots.length;
@@ -170,7 +170,12 @@
     });
     document.addEventListener("keydown", function (event) {
       if (!lb.classList.contains("is-open")) return;
-      if (event.key === "Escape") closeShot();
+      if (event.key === "Tab") {
+        var controls = [lbCloseBtn, lbPrevBtn, lbNextBtn];
+        var current = controls.indexOf(document.activeElement);
+        if (event.shiftKey && (current === 0 || current === -1)) { event.preventDefault(); controls[controls.length - 1].focus(); }
+        else if (!event.shiftKey && (current === controls.length - 1 || current === -1)) { event.preventDefault(); controls[0].focus(); }
+      } else if (event.key === "Escape") closeShot();
       else if (event.key === "ArrowLeft") stepShot(-1);
       else if (event.key === "ArrowRight") stepShot(1);
     });
@@ -202,8 +207,11 @@
   });
 
   if (form && statusEl && submitBtn) {
+    var requestedProduct = new URLSearchParams(window.location.search).get("product");
+    if (requestedProduct === "Diwan" || requestedProduct === "Vetrina") form.elements.service.value = requestedProduct;
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (submitBtn.disabled) return;
 
       var name = form.elements.name.value.trim();
       var phone = form.elements.phone.value.trim();
@@ -225,6 +233,8 @@
         problem[1].focus();
         return;
       }
+
+      if (!form.reportValidity()) return;
 
       var fromMarkup = (form.getAttribute("action") || "").trim();
       var endpoint = fromMarkup && fromMarkup.indexOf("YOUR_FORM_ID") === -1 ? fromMarkup : FORMSPREE_ENDPOINT;

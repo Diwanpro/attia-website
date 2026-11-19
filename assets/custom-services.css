@@ -16,3 +16,96 @@
 .brief-form .required-note{color:var(--muted);font-size:.84rem;margin-bottom:24px;}
 .custom-link-row{margin-top:32px;}
 @media(max-width:850px){.custom-layout{grid-template-columns:1fr;}.custom-aside{position:static;}.custom-hero{padding-top:50px;}}
+.consent-label{display:flex;align-items:flex-start;gap:10px;color:var(--text-soft);margin:0 0 16px;line-height:1.7;cursor:pointer;}
+.consent-label input{flex:none;margin-top:.5em;width:18px;height:18px;}
+.brief-note{font-size:.85rem;line-height:1.7;color:var(--text-soft);margin:12px 0 18px;}
+.brief-whatsapp{margin-inline-start:8px;}
+@media(max-width:600px){.brief-whatsapp{margin:12px 0 0;}}
+
+.brief-whatsapp[hidden]{display:none;}
+
+/* Native selects remain functional when custom picker styling is unavailable. */
+.brief-form .field select{
+  min-height:52px;
+  padding-inline:16px 42px;
+  border-color:rgba(194,212,221,.3);
+  background-color:#0b1a30;
+  cursor:pointer;
+}
+.brief-form .field select:hover{border-color:rgba(30,202,182,.65);}
+.brief-form .field select:focus-visible{outline:2px solid var(--teal-light);outline-offset:3px;}
+
+/* Enhance native pickers only where the browser supports this API. */
+@supports (appearance:base-select) and selector(::picker(select)){
+  .brief-form .field select,
+  .brief-form .field select::picker(select){appearance:base-select;}
+  .brief-form .field select{background-image:none;gap:12px;}
+  .brief-form .field select::picker-icon{color:var(--gold-light);transition:transform .2s ease;}
+  .brief-form .field select:open::picker-icon{transform:rotate(180deg);}
+  .brief-form .field select::picker(select){
+    margin-block-start:6px;
+    max-block-size:min(19rem,50vh);
+    overflow:auto;
+    color:var(--text);
+    background:#0b1a30;
+    border:1px solid rgba(30,202,182,.32);
+    border-radius:14px;
+    box-shadow:0 20px 48px rgba(0,0,0,.38);
+    opacity:0;
+    transform:translateY(-6px);
+    transition:opacity .2s ease,transform .2s ease,display .2s allow-discrete,overlay .2s allow-discrete;
+  }
+  .brief-form .field select:open::picker(select){opacity:1;transform:translateY(0);}
+  .brief-form .field select option{padding:11px 14px;gap:10px;color:var(--text);background:#0b1a30;}
+  .brief-form .field select option:hover,
+  .brief-form .field select option:focus{background:#173b49;color:#fff;}
+  .brief-form .field select option:checked{color:#a9f3e8;background:#123b40;}
+  .brief-form .field select option::checkmark{color:var(--gold-light);}
+  @starting-style{
+    .brief-form .field select:open::picker(select){opacity:0;transform:translateY(-6px);}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .brief-form .field select::picker-icon,
+  .brief-form .field select::picker(select){transition:none;}
+}
+
+/* Progressive enhancement: keep the original select in the form for values and validation. */
+.brief-form .field select.brief-select-source{
+  position:absolute!important;inline-size:1px!important;block-size:1px!important;min-height:0!important;
+  padding:0!important;margin:-1px!important;border:0!important;overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;
+  pointer-events:none;
+}
+.brief-select-trigger{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;min-height:52px;padding:12px 16px;border:1px solid rgba(194,212,221,.3);
+  border-radius:12px;background:#0b1a30;color:#e9f1f6;text-align:start;font:inherit;font-size:.94rem;
+  transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease;
+}
+.brief-select-trigger:hover,.brief-select-trigger[aria-expanded="true"]{border-color:#1ecab6;background:#102b3e;}
+.brief-select-trigger:focus-visible{outline:2px solid #1ecab6;outline-offset:3px;}
+.brief-select-trigger[aria-invalid="true"]{border-color:#ffbdbd;}
+.brief-select-trigger:disabled{opacity:.6;cursor:not-allowed;}
+.brief-select-value{min-width:0;overflow-wrap:anywhere;}
+.brief-select-arrow{flex:none;width:9px;height:9px;border-inline-end:2px solid #f3dfae;border-block-end:2px solid #f3dfae;transform:rotate(45deg);margin-inline:4px;transition:transform .2s ease;}
+.brief-select-trigger[aria-expanded="true"] .brief-select-arrow{transform:rotate(225deg);}
+.brief-select-list{
+  position:fixed;z-index:1000;overflow-y:auto;overscroll-behavior:contain;
+  border:1px solid rgba(30,202,182,.55);border-radius:14px;background:#0b1a30;color:#e9f1f6;
+  box-shadow:0 18px 42px rgba(0,0,0,.4);padding:6px;
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-7px);
+  transition:opacity .18s ease,transform .18s ease,visibility 0s linear .18s;
+  scrollbar-width:thin;scrollbar-color:#638f92 #0b1a30;
+}
+.brief-select-list.opens-up{transform:translateY(7px);}
+.brief-select-list.is-open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition-delay:0s;}
+.brief-select-option{position:relative;padding:11px 38px 11px 14px;border-radius:9px;min-height:44px;line-height:1.5;cursor:pointer;overflow-wrap:anywhere;}
+[dir="rtl"].brief-select-list .brief-select-option{padding:11px 14px 11px 38px;}
+.brief-select-option:hover,.brief-select-option.is-active{background:#173b49;color:#fff;}
+.brief-select-option[aria-selected="true"]{background:#123b40;color:#b2f6e9;font-weight:700;}
+.brief-select-option[aria-selected="true"]::after{content:"✓";position:absolute;inset-inline-end:14px;color:#f3dfae;}
+.brief-select-option[aria-disabled="true"]{opacity:.5;cursor:not-allowed;}
+.brief-select-error{display:block;color:#ffbdbd;margin-top:6px;font-size:.85rem;}
+.brief-select-error[hidden]{display:none;}
+@media(prefers-reduced-motion:reduce){.brief-select-list,.brief-select-arrow,.brief-select-trigger{transition:none;}}

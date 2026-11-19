@@ -43,15 +43,10 @@
 <link rel="apple-touch-icon" href="./logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://unpkg.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 <link rel="stylesheet" href="./assets/base.css" />
 <link rel="stylesheet" href="./assets/vetrina.css" />
 <link rel="stylesheet" href="./assets/site.css" />
-<link rel="stylesheet" href="./assets/custom-services.css" />
-<script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 <script src="./assets/i18n.js" defer></script>
 <script src="./assets/site.js" defer></script>
 <meta name="google-site-verification" content="1EDj3ApTyLEh_tvtTIW4BLy4U5CMrkJ0K3_3S_kai6U" />
@@ -151,6 +146,7 @@
           </a>
           <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">تحدث معنا</a>
         </div>
+        <div class="path-links" aria-label="مسارات الحلول"><a href="#diwan" data-i18n="hero.path.diwan">اكتشف ديوان</a><a href="./vetrina.html" data-i18n="hero.path.vetrina">اكتشف فترينة</a><a href="./custom-services.html" data-i18n="hero.path.custom">اطلب مشروعاً مخصصاً</a></div>
         <ul class="hero-chips">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="hero.chip1">تصميم متجاوب</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="hero.chip2">أداء عالٍ</span></li>
@@ -243,7 +239,7 @@
         <div class="diwan-preview-logo"><img src="./assets/diwan-logo.png" alt="شعار ديوان" data-i18n-alt="diwan.logoAlt" width="419" height="465" loading="lazy" decoding="async" /></div>
         <div class="diwan-preview-copy">
           <span class="eyebrow" data-i18n="diwan.eyebrow">منتجنا الرئيسي</span>
-          <h2 class="section-title" data-i18n="diwan.cardTitle">ديوان — نظام إدارة مكاتب المحاماة الأول</h2>
+          <h2 class="section-title" data-i18n="diwan.cardTitle">ديوان — نظام لإدارة مكاتب المحاماة</h2>
           <p class="section-sub" data-i18n="diwan.cardDesc">ملفاتك وجلساتك وحسابات مكتبك في نظام واحد، يعمل حتى دون اتصال.</p>
           <ul class="diwan-tags"><li dir="ltr">Offline-First</li><li dir="ltr">AES-256</li><li data-i18n="diwan.accounting">المحاسبة</li></ul>
         <div class="diwan-cta">
@@ -251,6 +247,7 @@
             <span data-i18n="diwan.cta1">تجربة التطبيق الآن</span>
             <svg class="btn-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
+          <a class="btn btn-outline" href="?product=Diwan#contact" data-i18n="diwan.request">اطلب عرض ديوان</a>
           <a class="btn btn-gold" href="./diwan-presentation.html" target="_blank" rel="noopener noreferrer" data-i18n="diwan.presentation">شاهد العرض التقديمي</a>
           <a class="btn btn-ghost" href="./diwan-guide-unified-v9.7.html" target="_blank" rel="noopener noreferrer">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5" /></svg>
@@ -265,7 +262,7 @@
   <!-- ================= VETRINA ================= -->
   <section class="section vt-preview" id="vetrina">
     <div class="container"><div class="vt-preview-card" data-aos="fade-up">
-      <div class="vt-mark"><img src="./assets/vetrina-logo.png" alt="Vetrina" width="1697" height="927" decoding="async" /></div>
+      <div class="vt-mark"><img src="./assets/vetrina-logo.png" alt="Vetrina" width="1697" height="927" loading="lazy" decoding="async" /></div>
       <div class="vt-preview-copy">
         <span class="eyebrow" data-i18n="v.teaser.kicker">حلولنا للتجارة</span>
         <h2 class="section-title" data-i18n="v.teaser.title">فترينة — تجارتك في مكان واحد</h2>
@@ -289,7 +286,7 @@
         <div class="pc-top">
           <div class="portfolio-media">
             <div class="brand-tile">
-              <img src="./diwan-logo.png" alt="شعار تطبيق ديوان" data-i18n-alt="portfolio.logoAlt" loading="lazy" decoding="async" />
+              <img src="./diwan-logo.png" width="300" height="149" alt="شعار تطبيق ديوان" data-i18n-alt="portfolio.logoAlt" loading="lazy" decoding="async" />
               <span class="tile-fallback" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5" /><circle cx="9" cy="10" r="1.5" /><path d="m4.5 17.5 4.2-4.2 3.3 3 2.7-2.4 5.3 4.6" /></svg>
                 <b dir="ltr">diwan-logo.png</b>
@@ -301,7 +298,7 @@
           <div class="portfolio-body">
             <span class="pill" data-i18n="portfolio.badge">تطبيق مميز</span>
             <h3 data-i18n="portfolio.appTitle">ديوان — نظام إدارة مكتب المحاماة</h3>
-            <p data-i18n="portfolio.appDesc">تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة وحماية لبيانات الموكلين.</p>
+            <p data-i18n="portfolio.appDesc">تطبيق ويب متكامل لإدارة مكتب المحاماة في الجزائر: القضايا والموكلون والجلسات والوثائق في مكان واحد، بواجهة عربية أنيقة.</p>
             <ul class="feature-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="portfolio.f1">إدارة القضايا والموكلين</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="portfolio.f2">الجلسات والمواعيد</span></li>
@@ -332,7 +329,7 @@
               <button type="button" class="shot-btn" data-shot="0" aria-label="تكبير لقطة لوحة التحكم" data-i18n-aria="portfolio.shot1Open">
                 <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / dashboard</span></span>
                 <span class="shot-view">
-                  <img src="./IMG_20261028_122520.webp" alt="ديوان — لوحة التحكم مع الآجال والجلسات والمهام" data-i18n-alt="portfolio.shot1Alt" loading="lazy" decoding="async" />
+                  <img src="./IMG_20261028_122520.webp" width="1080" height="1817" alt="ديوان — لوحة التحكم مع الآجال والجلسات والمهام" data-i18n-alt="portfolio.shot1Alt" loading="lazy" decoding="async" />
                   <span class="shot-fallback" aria-hidden="true"><b dir="ltr">IMG_20261028_122520.webp</b></span>
                   <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4M11 8v6M8 11h6" /></svg></span>
                 </span>
@@ -344,7 +341,7 @@
               <button type="button" class="shot-btn" data-shot="1" aria-label="تكبير لقطة الملفات والقضايا" data-i18n-aria="portfolio.shot2Open">
                 <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / dossiers</span></span>
                 <span class="shot-view">
-                  <img src="./IMG_20261028_122617.webp" alt="ديوان — قائمة الملفات والقضايا مع المراحل والمحاكم" data-i18n-alt="portfolio.shot2Alt" loading="lazy" decoding="async" />
+                  <img src="./IMG_20261028_122617.webp" width="906" height="1672" alt="ديوان — قائمة الملفات والقضايا مع المراحل والمحاكم" data-i18n-alt="portfolio.shot2Alt" loading="lazy" decoding="async" />
                   <span class="shot-fallback" aria-hidden="true"><b dir="ltr">IMG_20261028_122617.webp</b></span>
                   <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4M11 8v6M8 11h6" /></svg></span>
                 </span>
@@ -356,7 +353,7 @@
               <button type="button" class="shot-btn" data-shot="2" aria-label="تكبير لقطة الجلسات والآجال" data-i18n-aria="portfolio.shot3Open">
                 <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / audiences</span></span>
                 <span class="shot-view">
-                  <img src="./IMG_20261028_122753.webp" alt="ديوان — رزنامة الجلسات والمواعيد القادمة" data-i18n-alt="portfolio.shot3Alt" loading="lazy" decoding="async" />
+                  <img src="./IMG_20261028_122753.webp" width="896" height="1690" alt="ديوان — رزنامة الجلسات والمواعيد القادمة" data-i18n-alt="portfolio.shot3Alt" loading="lazy" decoding="async" />
                   <span class="shot-fallback" aria-hidden="true"><b dir="ltr">IMG_20261028_122753.webp</b></span>
                   <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4M11 8v6M8 11h6" /></svg></span>
                 </span>
@@ -368,7 +365,7 @@
               <button type="button" class="shot-btn" data-shot="3" aria-label="تكبير لقطة حاسبة الآجال" data-i18n-aria="portfolio.shot4Open">
                 <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / delais</span></span>
                 <span class="shot-view">
-                  <img src="./IMG_20261028_122824.webp" alt="ديوان — حاسبة الآجال القانونية الاسترشادية" data-i18n-alt="portfolio.shot4Alt" loading="lazy" decoding="async" />
+                  <img src="./IMG_20261028_122824.webp" width="916" height="1682" alt="ديوان — حاسبة الآجال القانونية الاسترشادية" data-i18n-alt="portfolio.shot4Alt" loading="lazy" decoding="async" />
                   <span class="shot-fallback" aria-hidden="true"><b dir="ltr">IMG_20261028_122824.webp</b></span>
                   <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4M11 8v6M8 11h6" /></svg></span>
                 </span>
@@ -380,7 +377,7 @@
               <button type="button" class="shot-btn" data-shot="4" aria-label="تكبير لقطة الأتعاب والحسابات" data-i18n-aria="portfolio.shot5Open">
                 <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / honoraires</span></span>
                 <span class="shot-view">
-                  <img src="./IMG_20261028_122911.webp" alt="ديوان — متابعة الأتعاب والتحصيل لكل موكل" data-i18n-alt="portfolio.shot5Alt" loading="lazy" decoding="async" />
+                  <img src="./IMG_20261028_122911.webp" width="888" height="1802" alt="ديوان — متابعة الأتعاب والتحصيل لكل موكل" data-i18n-alt="portfolio.shot5Alt" loading="lazy" decoding="async" />
                   <span class="shot-fallback" aria-hidden="true"><b dir="ltr">IMG_20261028_122911.webp</b></span>
                   <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4M11 8v6M8 11h6" /></svg></span>
                 </span>
@@ -392,7 +389,7 @@
               <button type="button" class="shot-btn" data-shot="5" aria-label="تكبير لقطة بوابة الموكل" data-i18n-aria="portfolio.shot6Open">
                 <span class="shot-chrome" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="shot-url">diwan.app / portail</span></span>
                 <span class="shot-view">
-                  <img src="./IMG_20261028_122939.webp" alt="ديوان — بوابة الموكل على الهاتف مع مشاركة الملف" data-i18n-alt="portfolio.shot6Alt" loading="lazy" decoding="async" />
+                  <img src="./IMG_20261028_122939.webp" width="891" height="1815" alt="ديوان — بوابة الموكل على الهاتف مع مشاركة الملف" data-i18n-alt="portfolio.shot6Alt" loading="lazy" decoding="async" />
                   <span class="shot-fallback" aria-hidden="true"><b dir="ltr">IMG_20261028_122939.webp</b></span>
                   <span class="shot-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4M11 8v6M8 11h6" /></svg></span>
                 </span>
@@ -410,8 +407,9 @@
     <div class="container contact-wrap">
       <div class="contact-info" data-aos="fade-up">
         <span class="eyebrow" data-i18n="contact.eyebrow">تواصل معنا</span>
-        <h2 data-i18n="contact.title">لنبنِ مشروعك القادم معاً</h2>
-        <p data-i18n="contact.sub">أخبرنا بفكرتك أو حاجتك، وسنعود إليك بتصوّر واضح خلال 24 ساعة.</p>
+        <h2 data-i18n="contact.title">تواصل معنا لاستفسارك</h2>
+        <p data-i18n="contact.sub">للاستفسارات العامة، أرسل لنا رسالة وسنتواصل معك.</p>
+        <p data-i18n="contact.customPrompt">لطلب موقع أو تطبيق أو نظام مخصص، استخدم نموذج المشروع المفصل.</p><p><a href="./custom-services.html#briefForm" data-i18n="contact.customLink">انتقل إلى نموذج الخدمات المخصصة</a></p>
         <div class="info-list">
           <div class="info-item">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" /></svg></span>
@@ -423,14 +421,14 @@
           </div>
           <div class="info-item">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg></span>
-            <div><small data-i18n="contact.hoursLabel">وقت الرد</small><strong data-i18n="contact.hours">خلال 24 ساعة</strong></div>
+            <div><small data-i18n="contact.hoursLabel">التواصل</small><strong data-i18n="contact.hours">حسب الطلب</strong></div>
           </div>
         </div>
       </div>
 
       <div class="form-card" data-aos="fade-up" data-aos-delay="100">
         <!-- رابط Formspree: عدّله هنا أو في الثابت FORMSPREE_ENDPOINT داخل assets/site.js -->
-        <form id="contactForm" action="https://formspree.io/f/mkjjpvjk" method="POST" novalidate>
+        <form id="contactForm" action="https://formspree.io/f/mkjjpvjk" method="POST">
           <div class="field">
             <label for="name" data-i18n="form.name">الاسم الكامل</label>
             <input type="text" id="name" name="name" autocomplete="name" required
@@ -448,40 +446,32 @@
                      placeholder="you@example.com" data-i18n-placeholder="form.emailPh" />
             </div>
           </div>
-          <div class="field-row">
-            <div class="field">
+          <div class="field">
               <label for="service" data-i18n="form.service">نوع الخدمة</label>
               <select id="service" name="service" required>
                 <option value="" disabled selected data-i18n="form.servicePh">اختر نوع الخدمة</option>
+                <option value="Diwan" data-i18n="form.diwan">Diwan</option>
+                <option value="Vetrina" data-i18n="form.vetrina">Vetrina</option>
                 <option value="Web App" data-i18n="form.serviceWeb">تطبيق ويب</option>
                 <option value="Website" data-i18n="form.serviceSite">موقع إلكتروني</option>
                 <option value="Business Software" data-i18n="form.serviceSoftware">برنامج إدارة أعمال</option>
                 <option value="Tech Consultation" data-i18n="form.serviceConsult">استشارة تقنية</option>
                 <option value="Other" data-i18n="form.serviceOther">أخرى</option>
               </select>
-            </div>
-            <div class="field">
-              <label for="budget" data-i18n="form.budget">الميزانية التقريبية <span class="opt" data-i18n="form.optional">(اختياري)</span></label>
-              <select id="budget" name="budget">
-                <option value="" selected data-i18n="form.budgetNone">غير محدد</option>
-                <option value="< 50 000 DZD" data-i18n="form.budgetLow">أقل من 50,000 دج</option>
-                <option value="50 000 - 100 000 DZD" data-i18n="form.budgetMid">50,000 - 100,000 دج</option>
-                <option value="> 100 000 DZD" data-i18n="form.budgetHigh">أكثر من 100,000 دج</option>
-              </select>
-            </div>
           </div>
           <div class="field">
             <label for="message" data-i18n="form.message">رسالتك</label>
             <textarea id="message" name="message" required
-                      placeholder="أخبرنا عن مشروعك..." data-i18n-placeholder="form.messagePh"></textarea>
+                      placeholder="اكتب استفسارك هنا..." data-i18n-placeholder="form.messagePh"></textarea>
           </div>
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <label class="contact-consent"><input type="checkbox" name="consent" value="yes" required> <span data-i18n="form.consent">أوافق على استخدام بياناتي للتواصل معي بشأن طلبي عبر النموذج.</span></label>
           <div class="form-foot">
             <button type="submit" class="btn btn-primary" id="submitBtn">
               <span data-i18n="form.submit">إرسال الرسالة</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z" /></svg>
             </button>
-            <span class="form-note" data-i18n="form.note">بياناتك تُستخدم للتواصل معك فقط.</span>
+            <span class="form-note" data-i18n="form.note">تُرسل بياناتك عبر Formspree للتواصل بشأن طلبك. لا تُدخل بيانات حساسة.</span>
           </div>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
@@ -515,7 +505,7 @@
         <p data-i18n="footer.tagline">نبتكر حلولاً رقمية تسهّل إدارة أعمالك — من التصميم إلى التطوير والدعم.</p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.links">روابط سريعة</h4>
+        <h2 data-i18n="footer.links">روابط سريعة</h2>
         <ul>
           <li><a href="#services" data-i18n="nav.services">خدماتنا</a></li>
           <li><a href="./custom-services.html" data-i18n="nav.custom">خدماتنا المخصصة</a></li>
@@ -526,7 +516,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.contactTitle">معلومات التواصل</h4>
+        <h2 data-i18n="footer.contactTitle">معلومات التواصل</h2>
         <ul>
           <li><a href="tel:+213798726063" dir="ltr">0798726063</a></li>
           <li><a href="mailto:attiawebsite@gmail.com" dir="ltr">attiawebsite@gmail.com</a></li>

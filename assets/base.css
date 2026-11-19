@@ -228,3 +228,5 @@ html.no-aos [data-aos]{opacity:1!important;transform:none!important;}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
   [data-aos]{opacity:1!important;transform:none!important;}
 }
+/* Telephone and email values remain legible in RTL forms. */
+html[dir="rtl"] .field input[dir="ltr"]{text-align:left;}
